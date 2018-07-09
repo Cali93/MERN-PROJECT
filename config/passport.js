@@ -12,7 +12,7 @@ module.exports = passport => {
   passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
     User.findById(jwt_payload.id)
       .then(user => {
-        // the condition could be user.type == 'admin' so that the user can access admin routes
+        // the condition could be user.memberType == 'admin' so that the user can access admin routes
         if (user) {
           return done(null, user);
         }
