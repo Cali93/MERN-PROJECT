@@ -31,6 +31,21 @@ router.get('/:id', postsCtrl.getPost);
 // @access        Public
 router.delete('/:id', passport.authenticate('jwt', {session: false}), postsCtrl.deletePost);
 
+// @route GET     api/posts/like/:id
+// @description   Like a post
+// @access        Private
+router.post('/like/:id', passport.authenticate('jwt', {session: false}), postsCtrl.likePost);
+
+// @route GET     api/posts/comment/:id
+// @description   Add a comment to a post
+// @access        Private
+router.post('/comment/:id', passport.authenticate('jwt', {session: false}), postsCtrl.commentPost);
+
+// @route GET     api/posts/comment/:id/:comment_id
+// @description   Delete a comment from post
+// @access        Public
+router.delete('/comment/:id/:commentid', passport.authenticate('jwt', {session: false}), postsCtrl.deletePostComment);
+
 
 
 module.exports = router;
