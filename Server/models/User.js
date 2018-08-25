@@ -15,7 +15,7 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  membertype: {
+  memberType: {
     type: String,
     default: 'basic'
   },

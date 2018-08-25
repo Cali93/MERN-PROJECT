@@ -9,7 +9,7 @@ exports.getCurrentProfile = (req, res) => {
   let errors = {};
   Profile
     .findOne({user:req.user.id})
-    .populate('user', ['name', 'avatar'])
+    .populate('user', ['name', 'avatar', 'memberType'])
     .then(profile => {
       if(!profile){
         errors.noprofile = 'There is no profile for this user';
@@ -86,7 +86,7 @@ exports.getProfileByHandle = (req, res) => {
   let errors = {};
   Profile
     .findOne({handle: req.params.handle})
-    .populate('user', ['name', 'avatar'])
+    .populate('user', ['name', 'avatar', 'memberType'])
     .then(profile => {
       if(!profile){
         errors.noprofile = 'There is no profile for this user.';
@@ -101,7 +101,7 @@ exports.getProfileById = (req, res) => {
   let errors = {};
   Profile
     .findOne({user: req.params.userid})
-    .populate('user', ['name', 'avatar'])
+    .populate('user', ['name', 'avatar', 'memberType'])
     .then(profile => {
       if(!profile){
         errors.noprofile = 'There is no profile for this user.';
@@ -116,7 +116,7 @@ exports.getAllProfiles = (req, res) => {
   let errors = {};
   Profile
     .find()
-    .populate('user', ['name', 'avatar'])
+    .populate('user', ['name', 'avatar', 'memberType'])
     .then(profiles => {
       if(!profiles){
         errors.noprofiles = 'There are no profiles.';
