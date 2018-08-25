@@ -7,3 +7,7 @@ body {
 .input-aligned {
   margin-left: 42px;
 }
+
+.navwidth {
+  width: 80%;
+ }
