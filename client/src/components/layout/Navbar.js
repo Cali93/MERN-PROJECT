@@ -13,8 +13,9 @@ import MenuComponent from '../../common/MenuComponent';
 import AuthMenu from '../../common/AuthMenu';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
+import Button from '@material-ui/core/Button';
 
-const styles = {
+const styles = theme => ({
   root: {
     flexGrow: 1,
   },
@@ -41,7 +42,13 @@ const styles = {
     marginRight: 20,
     marginTop:-15
   },
-};
+  button: {
+    margin: theme.spacing.unit*2,
+  },
+  input: {
+    display: 'none',
+  },
+});
 
 function Navbar(props) {
   const { classes } = props;
@@ -65,32 +72,32 @@ function Navbar(props) {
             <div className="container">
               <div className="row">
                 <NavLink to="/" className="col s3 m3 l3">
-                  <button className="btn">
+                <Button className={classes.button} variant="contained" color="secondary">
                   <Typography variant="title" color="inherit" className={classes.flex}>
                     Home
                   </Typography>
-                  </button>
+                  </Button>
                 </NavLink>
                 <NavLink className="col s3 m3 l3" to="/features">
-                  <button className="btn">
+                <Button className={classes.button} variant="contained" color="secondary">                  
                 <Typography variant="title" color="inherit" className={classes.flex}>
                   Features
                 </Typography>
-                  </button>
+                  </Button>
                 </NavLink>
                 <NavLink className="col s3 m3 l3" to="/about">
-                  <button className="btn">
-                <Typography variant="title" color="inherit" className={classes.flex}>
-                  About
-                </Typography>
-                  </button>
+                  <Button className={classes.button} variant="contained" color="secondary">                  
+                    <Typography variant="title" color="inherit" className={classes.flex}>
+                      About
+                    </Typography>
+                  </Button>
                 </NavLink>
                 <NavLink className="col s3 m3 l3" to="/contact">
-                  <button className="btn">
+                <Button className={classes.button} variant="contained" color="secondary">                  
                 <Typography variant="title" color="inherit" className={classes.flex}>
                   Contact
                 </Typography>
-                  </button>
+                  </Button>
                 </NavLink>
               </div>
             </div>

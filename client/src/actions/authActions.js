@@ -54,5 +54,4 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   // Set current user to {} which will set isAuthenticated to false and userLevel to not authenticated
   dispatch(setCurrentUser({}));
-  window.location.href = '/';
 }

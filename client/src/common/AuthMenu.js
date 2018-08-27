@@ -10,10 +10,12 @@ import {NavLink} from 'react-router-dom';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/authActions';
+import { clearCurrentProfile } from '../actions/profileActions';
+
 
 const WithState = toRenderProps(withState('anchorEl', 'updateAnchorEl', null));
 
-function RenderPropsMenu(props) {
+function AuthMenu(props) {
   return (
     <WithState>
       {({ anchorEl, updateAnchorEl }) => {
@@ -21,10 +23,10 @@ function RenderPropsMenu(props) {
         const handleClose = () => {
           updateAnchorEl(null);
         };
-        const handleLogout = (e, history) => {
+        const handleLogout = (e) => {
           e.preventDefault();
+          props.clearCurrentProfile();
           props.logoutUser();
-          props.history.push('/');
         };
 
         return (
@@ -57,9 +59,9 @@ const mapStateToProps = (state) => ({
   auth: state.auth
 })
 
-RenderPropsMenu.propTypes = {
-  classes: PropTypes.object.isRequired,
+AuthMenu.propTypes = {
   logoutUser: PropTypes.func.isRequired,
+  clearCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
-export default connect(mapStateToProps, { logoutUser })(RenderPropsMenu);
+export default connect(mapStateToProps, { logoutUser, clearCurrentProfile })(AuthMenu);

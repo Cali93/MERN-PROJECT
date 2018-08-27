@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
+import TextFieldGroup from '../../common/textFieldGroup';
+import { Button } from '../../../node_modules/@material-ui/core';
 
 class Register extends Component {
   state = {
@@ -54,48 +56,54 @@ class Register extends Component {
 
     return (
      <div>
-       <h4 className="center">Register</h4>	
+        <div className="waveWrapper waveAnimation">
+          <div className="waveWrapperInner bgTop">
+            <div className="wave waveTop"></div>
+          </div>
+          <div className="waveWrapperInner bgMiddle">
+            <div className="wave waveMiddle"></div>
+          </div>
+          <div className="waveWrapperInner bgBottom">
+            <div className="wave waveBottom"></div>
+          </div>
+        </div>
+        <h4 className="center blue-text text-lighten-3">REGISTER</h4>
       <div id="register-page" className="row">
         <div className="col s12 z-depth-6 card-panel">
           <form onSubmit={this.handleSubmit} className="register-form">        
             <div className="row margin">
               <div className="input-field col s12">
-                <i className="mdi-social-person-outline prefix"></i>
-                <input id="user_name" type="text" className={classnames('validate', {'invalid': errors.name})} name="name" value={this.state.name} onChange={this.handleChange}/>
-                {errors.name && (<span className="red-text text-darken-2 input-aligned">{errors.name}</span>)}
-                <label htmlFor="user_name" className="center-align">Username</label>
+
+                <TextFieldGroup label="Username" id="user_name" type="text" className={classnames('validate', {'invalid': errors.name})} name="name" value={this.state.name} onChange={this.handleChange}/>
               </div>
             </div>
             <div className="row margin">
               <div className="input-field col s12">
-                <i className="mdi-communication-email prefix"></i>
-                <input id="user_email" type="email" name="email" className={classnames('validate', {'invalid': errors.email})} value={this.state.email} onChange={this.handleChange}/>
-                {errors.email && (<span className="red-text text-darken-2 input-aligned">{errors.email}</span>)}
-                <label htmlFor="user_email" className="center-align">Email</label>
+
+                <TextFieldGroup label="Email" id="user_email" type="email" name="email" className={classnames('validate', {'invalid': errors.email})} value={this.state.email} onChange={this.handleChange}/>
               </div>
             </div>
             <div className="row margin">
               <div className="input-field col s12">
-                <i className="mdi-action-lock-outline prefix"></i>
-                <input id="user_passw" type="password" name="password" className={classnames('validate', {'invalid': errors.password})} value={this.state.password} onChange={this.handleChange}/>
-                {errors.password && (<span className="red-text text-darken-2 input-aligned">{errors.password}</span>)}
-                <label htmlFor="user_passw">Password</label>
+
+                <TextFieldGroup label="Password" id="user_passw" type="password" name="password" className={classnames('validate', {'invalid': errors.password})} value={this.state.password} onChange={this.handleChange}/>
               </div>
             </div>
             <div className="row margin">
               <div className="input-field col s12">
-                <i className="mdi-action-lock-outline prefix"></i>
-                <input id="confirm_pass" type="password" name="password2" className={classnames('validate', {'invalid': errors.password2})} value={this.state.password2} onChange={this.handleChange}/>
-                <label htmlFor="confirm_pass">Re-type password</label>
-                {errors.password2 && (<span className="red-text text-darken-2 input-aligned">{errors.password2}</span>)}
+
+                <TextFieldGroup label="Confirm Password" id="confirm_pass" type="password" name="password2" className={classnames('validate', {'invalid': errors.password2})} value={this.state.password2} onChange={this.handleChange}/>
               </div>
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <button className="btn waves-effect waves-light col s12" type="submit">Register Now</button>
+                <Button variant="contained" color="secondary">Register</Button>
               </div>
               <div className="input-field col s12">
-                <p className="margin center medium-small sign-up">Already have an account? <Link to="/login"><button className="btn">Login</button></Link></p>
+                <div className="margin center medium-small sign-up">Already have an account? 
+                <div className="divider"></div>
+                <Link to="/login"><Button variant="contained" color="primary">Login</Button></Link>
+                </div>
               </div>
             </div>
           </form>
