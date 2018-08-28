@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
-const TextFieldGroup = ({
+const TextAreaFieldGroup = ({
   id,
   name,
   placeholder,
@@ -13,14 +13,14 @@ const TextFieldGroup = ({
   info,
   type,
   onChange,
-  helperText,
-  disabled
+  helperText
 }) => {
   return (
     <div className="form-group">
         <TextField
         id={id}
         label={label}
+        multiline
         // InputLabelProps={{
         //   shrink: true,
         // }}
@@ -35,7 +35,6 @@ const TextFieldGroup = ({
         name={name}
         value={value}
         onChange={onChange}
-        disabled={disabled}
       />
       {info && <small className="form-text text-muted">{info}</small>}
       {error && <div className="invalid-feedback">{error}</div>}
@@ -43,22 +42,21 @@ const TextFieldGroup = ({
   );
 };
 
-TextFieldGroup.propTypes = {
+TextAreaFieldGroup.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  helperText: PropTypes.string,
   value: PropTypes.string.isRequired,
   info: PropTypes.string,
   error: PropTypes.string,
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  disabled: PropTypes.string
+  helperText: PropTypes.string
 };
  
-TextFieldGroup.defaultProps = {
+TextAreaFieldGroup.defaultProps = {
   type: 'text'
 };
 
-export default TextFieldGroup;
+export default TextAreaFieldGroup;
