@@ -30,7 +30,6 @@ class Register extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault();
     const newUser = {
       name : this.state.name,
       email : this.state.email,
@@ -97,7 +96,7 @@ class Register extends Component {
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <Button variant="contained" color="secondary">Register</Button>
+                <Button onClick={this.handleSubmit} variant="contained" color="secondary">Register</Button>
               </div>
               <div className="input-field col s12">
                 <div className="margin center medium-small sign-up">Already have an account? 

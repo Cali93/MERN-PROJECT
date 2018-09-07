@@ -12,7 +12,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 const styles = theme => ({
   margin: {
     margin: theme.spacing.unit,
-  },
+  }
 });
 
 function CustomInput(props) {

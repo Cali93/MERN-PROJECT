@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentProfile } from '../../actions/profileActions';
+import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
 import Spinner from '../../common/Spinner';
 import Button from '@material-ui/core/Button';
+import GridContainer from '../../common/GridContainer';
+import GridItem from '../../common/GridItem';
+import DeleteIcon from '@material-ui/icons/Delete';
 // import CircularProgress from '@material-ui/core/CircularProgress';
+import {ProfileActions} from './ProfileActions';
 
 class Dashboard extends Component {
   componentDidMount() {
     this.props.getCurrentProfile();
+  }
+
+  onDeleteAccount = (e) => {
+    this.props.deleteAccount();
   }
 
   render() {
@@ -24,7 +32,19 @@ class Dashboard extends Component {
     } else {
       // Check if logged in user has profile data
       if (Object.keys(profile).length > 0) {
-        dashboardContent = <h4>TODO: DISPLAY PROFILE</h4>;
+        dashboardContent = (
+          <div>
+            <h4 className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></h4>
+            <ProfileActions />
+            {/*TODO EXP and EDU*/}
+            <div style={{marginBottom:'60px'}}>
+              <Button variant="extendedFab" aria-label="Delete" color="secondary" onClick={this.onDeleteAccount}>
+              <DeleteIcon />
+               Delete My Account
+              </Button>
+            </div>
+          </div>
+        );
       } else {
         // User is logged in but has no profile
         dashboardContent = (
@@ -41,14 +61,14 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboard">
-        <div className="container center">
-          <div className="row">
-            <div className="col m12">
-              <h1 className="display-4">Dashboard</h1>
-              {dashboardContent}
-            </div>
-          </div>
-        </div>
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={12} >
+        <h1 className="display-4">Dashboard</h1>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={12}>
+        {dashboardContent}
+        </GridItem>
+      </GridContainer>
       </div>
     );
   }
@@ -56,6 +76,7 @@ class Dashboard extends Component {
 
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
 };
@@ -65,4 +86,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Dashboard);

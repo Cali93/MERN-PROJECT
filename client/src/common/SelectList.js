@@ -31,6 +31,7 @@ const SelectList = ({
             //   placeholder: {placeholder},
             //   id: {id},
             // }}
+            placeholder={placeholder}
             helperText={helperText}
             fullWidth
             type={type}

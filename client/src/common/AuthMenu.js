@@ -32,6 +32,7 @@ function AuthMenu(props) {
         return (
           <React.Fragment>
             <Button
+              variant="fab"
               aria-owns={open ? 'render-props-menu' : null}
               aria-haspopup="true"
               onClick={event => {

@@ -14,6 +14,9 @@ import AuthMenu from '../../common/AuthMenu';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import Button from '@material-ui/core/Button';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import {Link} from 'react-router-dom';
+
 
 const styles = theme => ({
   root: {
@@ -58,7 +61,15 @@ function Navbar(props) {
     <MenuComponent/>
   );
   const authLinks = (
-    <AuthMenu/>
+    <div>
+       <AuthMenu/>
+      
+      <Link to='/dashboard'>
+        <Button variant="fab">
+        <DashboardIcon/>
+        </Button>
+      </Link>
+    </div>
   );
   return (
     <div className={classes.root}>

@@ -19,12 +19,15 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import TextAreaFieldGroup from "../../common/TextAreaFieldGroup";
 import TextFieldGroup from "../../common/textFieldGroup";
 import SelectList from '../../common/SelectList';
+import {formatProfileData} from '../../utils/formatProfileData';
+
+import {isEmpty} from '../../utils/is-empty';
  
 import avatar from "../../assets/img/marc.jpg";
 
-import {createProfile} from '../../actions/profileActions';
+import {createProfile, getCurrentProfile} from '../../actions/profileActions';
 
-class CreateProfile extends Component {
+class EditProfile extends Component {
   state = {
     displaySocialInputs: false,
     handle: '',
@@ -42,9 +45,62 @@ class CreateProfile extends Component {
     instagram: '',
     errors: {}
   }
+
+  componentDidMount(){
+    this.props.getCurrentProfile();
+  }
+
   componentWillReceiveProps(nextProps){
     if(nextProps.errors){
       this.setState({errors:nextProps.errors})
+    }
+
+    if(nextProps.profile.profile){
+      const profile = nextProps.profile.profile;
+
+      // Bring skills array back to CSV
+      const skillsCSV = profile.skills.join(',');
+
+      // If profile field doesnt exist, make empty string
+      profile.company = !isEmpty(profile.company) ? profile.company : '';
+      profile.website = !isEmpty(profile.website) ? profile.website : '';
+      profile.location = !isEmpty(profile.location) ? profile.location : '';
+      profile.githubusername = !isEmpty(profile.githubusername)
+        ? profile.githubusername
+        : '';
+      profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
+      profile.social = !isEmpty(profile.social) ? profile.social : {};
+      profile.twitter = !isEmpty(profile.social.twitter)
+        ? profile.social.twitter
+        : '';
+      profile.facebook = !isEmpty(profile.social.facebook)
+        ? profile.social.facebook
+        : '';
+      profile.linkedin = !isEmpty(profile.social.linkedin)
+        ? profile.social.linkedin
+        : '';
+      profile.youtube = !isEmpty(profile.social.youtube)
+        ? profile.social.youtube
+        : '';
+      profile.instagram = !isEmpty(profile.social.instagram)
+        ? profile.social.instagram
+        : '';
+
+      // Set component fields state
+      this.setState({
+        handle: profile.handle,
+        company: profile.company,
+        website: profile.website,
+        location: profile.location,
+        status: profile.status,
+        skills: skillsCSV,
+        githubusername: profile.githubusername,
+        bio: profile.bio,
+        twitter: profile.twitter,
+        facebook: profile.facebook,
+        linkedin: profile.linkedin,
+        youtube: profile.youtube
+      });
     }
   }
 
@@ -263,7 +319,7 @@ class CreateProfile extends Component {
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
-            <CardHeader color="primary" title="Complete your profile"
+            <CardHeader color="primary" title="Update your profile"
             subheader="Fields marked with * are required">
             </CardHeader>
             <CardContent>
@@ -442,8 +498,9 @@ class CreateProfile extends Component {
 
 }
 
-  CreateProfile.propTypes = {
+  EditProfile.propTypes = {
     createProfile: PropTypes.func.isRequired,
+    getCurrentProfile: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
   }
@@ -453,4 +510,4 @@ class CreateProfile extends Component {
     errors: state.errors
   })
 
-export default connect (mapStateToProps, {createProfile})(withRouter(CreateProfile));
+export default connect (mapStateToProps, {createProfile, getCurrentProfile})(withRouter(EditProfile));

@@ -18,6 +18,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Register  from './core/auth/Register';
 import Login from './core/auth/Login';
 import CreateProfile from './components/create-profile/CreateProfile';
+import EditProfile from './components/edit-profile/EditProfile';
 import { Provider } from 'react-redux';
 import { store } from './store';
 
@@ -59,6 +60,7 @@ class App extends Component {
                 <Route path='/Register' component={Register} />
                 <Route path='/Login' component={Login} />
                 <Switch><PrivateRoute path='/create-profile' component={CreateProfile} /></Switch>                
+                <Switch><PrivateRoute path='/edit-profile' component={EditProfile} /></Switch>                
           </div>
       </BrowserRouter>
      </Provider>
