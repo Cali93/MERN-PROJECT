@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 // core components
-import GridItem from "../../common/GridItem";
-import GridContainer from "../../common/GridContainer";
+import GridItem from "../../../common/GridItem";
+import GridContainer from "../../../common/GridContainer";
 import Button from '@material-ui/core/Button';
 import Card from "@material-ui/core/Card";
 import CardHeader from '@material-ui/core/CardHeader';
@@ -14,15 +14,20 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
+import {PaperHeader} from '../../../common/PaperHeader';
+
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-import TextAreaFieldGroup from "../../common/TextAreaFieldGroup";
-import TextFieldGroup from "../../common/textFieldGroup";
-import SelectList from '../../common/SelectList';
- 
-import avatar from "../../assets/img/marc.jpg";
+import TextAreaFieldGroup from "../../../common/TextAreaFieldGroup";
+import TextFieldGroup from "../../../common/textFieldGroup";
+import SelectList from '../../../common/SelectList';
+// import {formatProfileData} from '../../../utils/formatProfileData';
 
-import {createProfile} from '../../actions/profileActions';
+// import {isEmpty} from '../../../utils/is-empty';
+ 
+// import avatar from "../../../assets/img/marc.jpg";
+
+import {createProfile} from '../../../actions/profileActions';
 
 class CreateProfile extends Component {
   state = {
@@ -46,6 +51,7 @@ class CreateProfile extends Component {
     if(nextProps.errors){
       this.setState({errors:nextProps.errors})
     }
+    
   }
 
   handleSubmit = (e) => {
@@ -128,6 +134,7 @@ class CreateProfile extends Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    error={errors.twitter}
                   />
               </Grid>
               </Grid>
@@ -147,6 +154,7 @@ class CreateProfile extends Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    error={errors.facebook}
                   />
               </Grid>
               </Grid>
@@ -166,6 +174,8 @@ class CreateProfile extends Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    error={errors.linkedin}
+
                   />
               </Grid>
               </Grid>
@@ -185,6 +195,8 @@ class CreateProfile extends Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    error={errors.youtube}
+
                   />
               </Grid>
               </Grid>
@@ -204,6 +216,8 @@ class CreateProfile extends Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    error={errors.instagram}
+
                   />
               </Grid>
               </Grid>
@@ -260,6 +274,7 @@ class CreateProfile extends Component {
     return (
       <div>
     <form onSubmit={this.handleSubmit}>
+    <PaperHeader/>
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
@@ -304,6 +319,7 @@ class CreateProfile extends Component {
                     // inputProps={{
                     //   disabled: true
                     // }}
+                    error={errors.handle}                    
                   />
                 </GridItem>
 
@@ -318,6 +334,8 @@ class CreateProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="Could be your own company or one you work for"
+                    error={errors.company}
+
                   />
                 </GridItem>
                 
@@ -332,6 +350,8 @@ class CreateProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="Could be your own website or a company one"
+                    error={errors.website}
+
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
@@ -345,6 +365,8 @@ class CreateProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="Your city and postcode"
+                    error={errors.location}
+
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
@@ -378,6 +400,8 @@ class CreateProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="If you want your latest repos and a GitHub link, include your username"
+                    error={errors.githubusername}
+                    
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={12}>
@@ -391,6 +415,7 @@ class CreateProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="Tell us a little bit about yourself"
+                    error={errors.bio}
                   />
                 </GridItem>
 
@@ -408,6 +433,7 @@ class CreateProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="Please use comma spearated (eg. HTML, CSS, JavaScript, etc.)"
+                    errors={errors.skills}
                   />
                 </GridItem>
               </GridContainer>

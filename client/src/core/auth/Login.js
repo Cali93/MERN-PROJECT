@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
-import classnames from 'classnames';
+// import classnames from 'classnames';
 import TextFieldGroup from '../../common/textFieldGroup';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
@@ -70,14 +70,14 @@ class Login extends Component {
               <div className="row margin">
                 <div className="input-field col s12">
                 <i className="mdi-communication-email prefix"></i>
-                <TextFieldGroup id="user_email" label="Email" type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
+                <TextFieldGroup id="user_email" label="Email" type="email" name="email" value={this.state.email} onChange={this.handleChange} error={errors.email}/>
                 {/* <label htmlFor="user_email" className="center-align">Email</label> */}
                 </div>
               </div>
               <div className="row margin">
                 <div className="input-field col s12">
                   <i className="mdi-action-lock-outline prefix"></i>
-                  <TextFieldGroup id="user_pass" type="password" label="Password" name="password" value={this.state.password} onChange={this.handleChange} />
+                  <TextFieldGroup id="user_pass" type="password" label="Password" name="password" value={this.state.password} onChange={this.handleChange} error={errors.password}/>
                   {/* <label htmlFor="password">Password</label> */}
                 </div>
               </div>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-const TextFieldGroup = ({
+const DatePicker = ({
   id,
   name,
   placeholder,
@@ -22,9 +22,9 @@ const TextFieldGroup = ({
         <TextField
         id={id}
         label={label}
-        // InputLabelProps={{
-        //   shrink: true,
-        // }}
+        InputLabelProps={{
+          shrink: true,
+        }}
         placeholder={placeholder}
         helperText={helperText}
         fullWidth
@@ -38,12 +38,13 @@ const TextFieldGroup = ({
         onChange={onChange}
         disabled={disabled}
       />
+      {info && <small className="form-text text-muted">{info}</small>}
       {error && <FormHelperText style={{marginTop:'-7px',color:'red'}}>{error}</FormHelperText>}
     </div>
   );
 };
 
-TextFieldGroup.propTypes = {
+DatePicker.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -54,11 +55,11 @@ TextFieldGroup.propTypes = {
   error: PropTypes.string,
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  disabled: PropTypes.string
+  disabled: PropTypes.bool
 };
  
-TextFieldGroup.defaultProps = {
-  type: 'text'
+DatePicker.defaultProps = {
+  type: 'date'
 };
 
-export default TextFieldGroup;
+export default DatePicker;

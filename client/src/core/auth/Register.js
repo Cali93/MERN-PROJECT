@@ -73,25 +73,25 @@ class Register extends Component {
             <div className="row margin">
               <div className="input-field col s12">
 
-                <TextFieldGroup label="Username" id="user_name" type="text" className={classnames('validate', {'invalid': errors.name})} name="name" value={this.state.name} onChange={this.handleChange}/>
+                <TextFieldGroup label="Username" id="user_name" type="text" className={classnames('validate', {'invalid': errors.name})} name="name" value={this.state.name} onChange={this.handleChange} error={errors.name}/>
               </div>
             </div>
             <div className="row margin">
               <div className="input-field col s12">
 
-                <TextFieldGroup label="Email" id="user_email" type="email" name="email" className={classnames('validate', {'invalid': errors.email})} value={this.state.email} onChange={this.handleChange}/>
+                <TextFieldGroup label="Email" id="user_email" type="email" name="email" className={classnames('validate', {'invalid': errors.email})} value={this.state.email} onChange={this.handleChange} error={errors.email}/>
               </div>
             </div>
             <div className="row margin">
               <div className="input-field col s12">
 
-                <TextFieldGroup label="Password" id="user_passw" type="password" name="password" className={classnames('validate', {'invalid': errors.password})} value={this.state.password} onChange={this.handleChange}/>
+                <TextFieldGroup label="Password" id="user_passw" type="password" name="password" className={classnames('validate', {'invalid': errors.password})} value={this.state.password} onChange={this.handleChange} error={errors.password}/>
               </div>
             </div>
             <div className="row margin">
               <div className="input-field col s12">
 
-                <TextFieldGroup label="Confirm Password" id="confirm_pass" type="password" name="password2" className={classnames('validate', {'invalid': errors.password2})} value={this.state.password2} onChange={this.handleChange}/>
+                <TextFieldGroup label="Confirm Password" id="confirm_pass" type="password" name="password2" className={classnames('validate', {'invalid': errors.password2})} value={this.state.password2} onChange={this.handleChange} error={errors.password2}/>
               </div>
             </div>
             <div className="row">

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 const SelectList = ({
   id,
@@ -67,13 +68,13 @@ const SelectList = ({
         onChange={onChange}
       /> */}
       {info && <small className="form-text text-muted">{info}</small>}
-      {error && <div className="invalid-feedback">{error}</div>}
+      {error && <FormHelperText style={{marginTop:'-7px',color:'red'}}>{error}</FormHelperText>}
     </div>
   );
 };
 
 SelectList.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,

@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 // core components
-import GridItem from "../../common/GridItem";
-import GridContainer from "../../common/GridContainer";
+import GridItem from "../../../common/GridItem";
+import GridContainer from "../../../common/GridContainer";
 import Button from '@material-ui/core/Button';
 import Card from "@material-ui/core/Card";
 import CardHeader from '@material-ui/core/CardHeader';
@@ -15,17 +15,17 @@ import CardActions from '@material-ui/core/CardActions';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
 import FormHelperText from '@material-ui/core/FormHelperText';
+import {PaperHeader} from '../../../common/PaperHeader';
+import TextAreaFieldGroup from "../../../common/TextAreaFieldGroup";
+import TextFieldGroup from "../../../common/textFieldGroup";
+import SelectList from '../../../common/SelectList';
+// import {formatProfileData} from '../../../utils/formatProfileData';
 
-import TextAreaFieldGroup from "../../common/TextAreaFieldGroup";
-import TextFieldGroup from "../../common/textFieldGroup";
-import SelectList from '../../common/SelectList';
-import {formatProfileData} from '../../utils/formatProfileData';
-
-import {isEmpty} from '../../utils/is-empty';
+import {isEmpty} from '../../../utils/is-empty';
  
-import avatar from "../../assets/img/marc.jpg";
+// import avatar from "../../../assets/img/marc.jpg";
 
-import {createProfile, getCurrentProfile} from '../../actions/profileActions';
+import {createProfile, getCurrentProfile} from '../../../actions/profileActions';
 
 class EditProfile extends Component {
   state = {
@@ -184,6 +184,7 @@ class EditProfile extends Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    error={errors.twitter}
                   />
               </Grid>
               </Grid>
@@ -203,6 +204,7 @@ class EditProfile extends Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    error={errors.facebook}
                   />
               </Grid>
               </Grid>
@@ -222,6 +224,8 @@ class EditProfile extends Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    error={errors.linkedin}
+
                   />
               </Grid>
               </Grid>
@@ -241,6 +245,8 @@ class EditProfile extends Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    error={errors.youtube}
+
                   />
               </Grid>
               </Grid>
@@ -260,6 +266,8 @@ class EditProfile extends Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    error={errors.instagram}
+
                   />
               </Grid>
               </Grid>
@@ -316,12 +324,10 @@ class EditProfile extends Component {
     return (
       <div>
     <form onSubmit={this.handleSubmit}>
+    <PaperHeader title="Complete your profile" blob="Tell us a bit more about you !"/>
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
-            <CardHeader color="primary" title="Update your profile"
-            subheader="Fields marked with * are required">
-            </CardHeader>
             <CardContent>
               <GridContainer>
 
@@ -360,6 +366,7 @@ class EditProfile extends Component {
                     // inputProps={{
                     //   disabled: true
                     // }}
+                    error={errors.handle}                    
                   />
                 </GridItem>
 
@@ -374,6 +381,8 @@ class EditProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="Could be your own company or one you work for"
+                    error={errors.company}
+
                   />
                 </GridItem>
                 
@@ -388,6 +397,8 @@ class EditProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="Could be your own website or a company one"
+                    error={errors.website}
+
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
@@ -401,6 +412,8 @@ class EditProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="Your city and postcode"
+                    error={errors.location}
+
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
@@ -434,6 +447,8 @@ class EditProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="If you want your latest repos and a GitHub link, include your username"
+                    error={errors.githubusername}
+                    
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={12}>
@@ -447,6 +462,7 @@ class EditProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="Tell us a little bit about yourself"
+                    error={errors.bio}
                   />
                 </GridItem>
 
@@ -464,6 +480,7 @@ class EditProfile extends Component {
                       fullWidth: true
                     }}
                     helperText="Please use comma spearated (eg. HTML, CSS, JavaScript, etc.)"
+                    errors={errors.skills}
                   />
                 </GridItem>
               </GridContainer>

@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 const TextAreaFieldGroup = ({
   id,
@@ -37,13 +38,13 @@ const TextAreaFieldGroup = ({
         onChange={onChange}
       />
       {info && <small className="form-text text-muted">{info}</small>}
-      {error && <div className="invalid-feedback">{error}</div>}
+      {error && <FormHelperText style={{marginTop:'-7px',color:'red'}}>{error}</FormHelperText>}
     </div>
   );
 };
 
 TextAreaFieldGroup.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
