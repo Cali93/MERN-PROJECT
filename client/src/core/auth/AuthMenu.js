@@ -9,8 +9,8 @@ import withState from 'recompose/withState';
 import {NavLink} from 'react-router-dom';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { connect } from 'react-redux';
-import { logoutUser } from '../actions/authActions';
-import { clearCurrentProfile } from '../actions/profileActions';
+import { logoutUser } from '../../actions/authActions';
+import { clearCurrentProfile } from '../../actions/profileActions';
 
 
 const WithState = toRenderProps(withState('anchorEl', 'updateAnchorEl', null));
@@ -39,15 +39,11 @@ function AuthMenu(props) {
                 updateAnchorEl(event.currentTarget);
               }}
             >
-              < AccountCircle className="blue darken-4 teal-text text-lighten-2 z-depth-3"/>
+              < AccountCircle />
             </Button>
             <Menu id="render-props-menu" anchorEl={anchorEl} open={open} onClose={handleClose}>
-              <MenuItem onClick={handleClose}><NavLink className="btn" to="/profile">Profile</NavLink></MenuItem>
-              <MenuItem onClick={handleClose}><a onClick={handleLogout} className="btn">Logout</a></MenuItem>
-              {/* if user is auth show below*/}
-              {/* <MenuItem onClick={handleClose}><NavLink to="/profile">Profile</NavLink></MenuItem>
-              <MenuItem onClick={handleClose}><NavLink to="/profile">Profile</NavLink></MenuItem> */}
-              
+              <MenuItem onClick={handleClose}><NavLink to="/profile"><Button variant="outlined" color="primary">Profile</Button></NavLink></MenuItem>
+              <MenuItem onClick={handleClose}><Button variant="outlined" color="secondary" onClick={handleLogout}>Logout</Button></MenuItem>
             </Menu>
           </React.Fragment>
         );

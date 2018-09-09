@@ -5,9 +5,8 @@ import PreviousButton from '@material-ui/icons/KeyboardArrowLeft'
 import GridContainer from './GridContainer';
 import GridItem from './GridItem';
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-export const PaperHeader = ({title, blob, prevButton, actionButton, actionLink, textColor, paperColor}) => {
+export const PaperHeaderLink = ({title, blob, prevButton, actionButton, actionLink}) => {
   return (
     <div>
       <GridContainer>
@@ -15,8 +14,8 @@ export const PaperHeader = ({title, blob, prevButton, actionButton, actionLink, 
           <Paper
             style={{
             textAlign: 'center',
-            color: `${textColor}`,
-            backgroundColor: `${paperColor}`
+            color: 'white',
+            backgroundColor: '#f50057'//'#3f51b5'
           }}>
             <GridContainer>
               <GridItem xs={2} sm={2} md={2}>
@@ -35,17 +34,15 @@ export const PaperHeader = ({title, blob, prevButton, actionButton, actionLink, 
                 <div style={{
                   marginRight: '20%'
                 }}>
-                  <h2>{title}</h2>
-                  <p>{blob}</p>
-                  {actionButton && 
+                  <h2>{title} {actionButton && 
                   <Link to={actionLink}>
                     <Button
-                    style={{marginBottom:'15px'}}
                     color="primary"
                     variant="extendedFab">
                     {actionButton}
                   </Button>
-                  </Link>}
+                  </Link>}</h2>
+                  <p>{blob}</p>
                 </div>
               </GridItem>
             </GridContainer>
@@ -56,18 +53,3 @@ export const PaperHeader = ({title, blob, prevButton, actionButton, actionLink, 
     </div>
   )
 }
-
-PaperHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  blob:PropTypes.string,
-  prevButton:PropTypes.string,
-  actionButton:PropTypes.string,
-  actionLink:PropTypes.string,
-  textColor:PropTypes.string,
-  paperColor:PropTypes.string
-}
-
-PaperHeader.defaultProps = {
-  paperColor: '#f50057',
-  textColor: 'white'
-};

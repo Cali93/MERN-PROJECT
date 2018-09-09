@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 import TextFieldGroup from '../../common/textFieldGroup';
 import { Button } from '../../../node_modules/@material-ui/core';
+import Paper from '@material-ui/core/Paper';
+import Divider from '@material-ui/core/Divider';
+import {PaperHeader} from '../../common/PaperHeader';
+import GridContainer from '../../common/GridContainer';
+import GridItem from '../../common/GridItem';
 
 class Register extends Component {
   state = {
@@ -50,6 +54,12 @@ class Register extends Component {
   render() {
 
     const { errors } = this.state;
+    const styles = {
+      marginTopBot: {
+        marginTop: '15px',
+        marginBottom: '15px'
+      }
+    }
 
     // const { user } = this.props.auth;
 
@@ -66,48 +76,89 @@ class Register extends Component {
             <div className="wave waveBottom"></div>
           </div>
         </div>
-        <h4 className="center blue-text text-lighten-3">REGISTER</h4>
-      <div id="register-page" className="row">
-        <div className="col s12 z-depth-6 card-panel">
-          <form onSubmit={this.handleSubmit} className="register-form">        
-            <div className="row margin">
-              <div className="input-field col s12">
+        <PaperHeader title="Register" blob="Join the community and contribute"/>
+        <div id="user-register">
+          <GridContainer>
+            <GridItem xs={12} sm={12} md={12}>
+              <Paper>
+                <div >
+                  <form onSubmit={this.handleSubmit} className="login-htmlForm">
+                    <GridContainer>
+                      <GridItem xs={12} sm={12} md={6}>
+                        <i className="mdi-communication-email prefix"></i>
+                        <TextFieldGroup
+                          id="user_name"
+                          label="Username"
+                          type="text"
+                          name="name"
+                          value={this.state.name}
+                          onChange={this.handleChange}
+                          error={errors.name}/> {/* <label htmlFor="user_email" className="center-align">Email</label> */}
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={6}>
+                        <i className="mdi-communication-email prefix"></i>
+                        <TextFieldGroup
+                          id="user_email"
+                          label="Email"
+                          type="email"
+                          name="email"
+                          value={this.state.email}
+                          onChange={this.handleChange}
+                          error={errors.email}/> {/* <label htmlFor="user_email" className="center-align">Email</label> */}
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={6}>
+                        <i className="mdi-action-lock-outline prefix"></i>
+                        <TextFieldGroup
+                          id="user_pass"
+                          type="password"
+                          label="Password"
+                          name="password"
+                          value={this.state.password}
+                          onChange={this.handleChange}
+                          error={errors.password}/> {/* <label htmlFor="password">Password</label> */}
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={6}>
+                        <i className="mdi-action-lock-outline prefix"></i>
+                        <TextFieldGroup
+                          id="user_pass2"
+                          type="password"
+                          label="Confirm password"
+                          name="password2"
+                          value={this.state.password2}
+                          onChange={this.handleChange}
+                          error={errors.password2}/> {/* <label htmlFor="password">Password</label> */}
+                      </GridItem>
+                    </GridContainer>
 
-                <TextFieldGroup label="Username" id="user_name" type="text" className={classnames('validate', {'invalid': errors.name})} name="name" value={this.state.name} onChange={this.handleChange} error={errors.name}/>
-              </div>
-            </div>
-            <div className="row margin">
-              <div className="input-field col s12">
-
-                <TextFieldGroup label="Email" id="user_email" type="email" name="email" className={classnames('validate', {'invalid': errors.email})} value={this.state.email} onChange={this.handleChange} error={errors.email}/>
-              </div>
-            </div>
-            <div className="row margin">
-              <div className="input-field col s12">
-
-                <TextFieldGroup label="Password" id="user_passw" type="password" name="password" className={classnames('validate', {'invalid': errors.password})} value={this.state.password} onChange={this.handleChange} error={errors.password}/>
-              </div>
-            </div>
-            <div className="row margin">
-              <div className="input-field col s12">
-
-                <TextFieldGroup label="Confirm Password" id="confirm_pass" type="password" name="password2" className={classnames('validate', {'invalid': errors.password2})} value={this.state.password2} onChange={this.handleChange} error={errors.password2}/>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <Button onClick={this.handleSubmit} variant="contained" color="secondary">Register</Button>
-              </div>
-              <div className="input-field col s12">
-                <div className="margin center medium-small sign-up">Already have an account? 
-                <div className="divider"></div>
-                <Link to="/login"><Button variant="contained" color="primary">Login</Button></Link>
+                    <div style={{
+                      textAlign: 'center'
+                    }}>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={12}>
+                          <div style={styles.marginTopBot}>
+                            <Button onClick={this.handleSubmit} variant="contained" color="secondary">Register</Button>
+                          </div>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={12}>
+                          <Divider/>
+                          <small>Already have an account ?
+                          </small>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={12}>
+                          <div style={styles.marginTopBot}>
+                            <Link to="/login">
+                              <Button variant="contained" color="primary">Login</Button>
+                            </Link>
+                          </div>
+                        </GridItem>
+                      </GridContainer>
+                    </div>
+                  </form>
                 </div>
-              </div>
-            </div>
-          </form>
+              </Paper>
+            </GridItem>
+          </GridContainer>
         </div>
-      </div>
      </div>
     )
   }

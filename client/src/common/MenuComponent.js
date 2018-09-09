@@ -31,11 +31,8 @@ function RenderPropsMenu() {
               < AccountCircle/>
             </Button>
             <Menu id="render-props-menu" anchorEl={anchorEl} open={open} onClose={handleClose}>
-              <MenuItem onClick={handleClose}><NavLink className="btn" to="/login">Login</NavLink></MenuItem>
-              <MenuItem onClick={handleClose}><NavLink className="btn" to="/register">Register</NavLink></MenuItem>
-              {/* if user is auth show below*/}
-              {/* <MenuItem onClick={handleClose}><NavLink to="/profile">Profile</NavLink></MenuItem>
-              <MenuItem onClick={handleClose}><NavLink to="/profile">Profile</NavLink></MenuItem> */}
+              <MenuItem onClick={handleClose}><NavLink to="/login"><Button variant="outlined" color="primary">Login</Button></NavLink></MenuItem>
+              <MenuItem onClick={handleClose}><NavLink to="/register"><Button variant="outlined" color="primary">Register</Button></NavLink></MenuItem>
               
             </Menu>
           </React.Fragment>

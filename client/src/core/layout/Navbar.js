@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import {NavLink} from 'react-router-dom';
 import MenuComponent from '../../common/MenuComponent';
-import AuthMenu from '../../common/AuthMenu';
+import AuthMenu from '../../core/auth/AuthMenu';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import Button from '@material-ui/core/Button';

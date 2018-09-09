@@ -274,35 +274,12 @@ class CreateProfile extends Component {
     return (
       <div>
     <form onSubmit={this.handleSubmit}>
-    <PaperHeader/>
+    <PaperHeader title="Complete your profile" blob="Tell us a bit more about you !"/>
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
-            <CardHeader color="primary" title="Complete your profile"
-            subheader="Fields marked with * are required">
-            </CardHeader>
             <CardContent>
               <GridContainer>
-
-                  {/* <GridItem xs={12} sm={12} md={6}>
-                  <SelectList
-                    name="status"
-                    onChange={this.handleChange}
-                    value={this.state.status}
-                    label="Status"
-                    id="status"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                    inputProps={{
-                      placeholder:"* Select Professional status"
-                    }}
-                    options={options}
-                    errors={errors}
-                  />
-                  <FormHelperText>Give us an idea of where you are at in your career</FormHelperText>
-
-                </GridItem> */}
 
                 <GridItem xs={12} sm={12} md={6}>
                   <TextFieldGroup

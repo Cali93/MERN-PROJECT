@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
@@ -10,6 +9,10 @@ import GridItem from '../../common/GridItem';
 import DeleteIcon from '@material-ui/icons/Delete';
 // import CircularProgress from '@material-ui/core/CircularProgress';
 import {ProfileActions} from './ProfileActions';
+import { PaperHeader } from '../../common/PaperHeader';
+import { PaperHeaderLink } from '../../common/PaperHeaderLink';
+import Experiences from './Experiences';
+import Educations from './Educations';
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -34,14 +37,21 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
-            <h4 className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></h4>
+            <PaperHeaderLink title="Welcome" actionButton={`${user.name}`} actionLink={`/profile/${profile.handle}`}/>
+            {/* <h4 className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></h4> */}
             <ProfileActions />
             {/*TODO EXP and EDU*/}
-            <div style={{marginBottom:'60px'}}>
-              <Button variant="extendedFab" aria-label="Delete" color="secondary" onClick={this.onDeleteAccount}>
-              <DeleteIcon />
-               Delete My Account
-              </Button>
+            <Experiences experience={profile.experience}/>
+            <Educations education={profile.education}/>
+            <div style={{margin:'15px 0 15px 0', textAlign:'center'}}>
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={12}>
+                  <Button variant="extendedFab" aria-label="Delete" color="secondary" onClick={this.onDeleteAccount}>
+                    <DeleteIcon />
+                    Delete My Account
+                  </Button>
+                </GridItem>
+              </GridContainer>
             </div>
           </div>
         );
@@ -49,11 +59,12 @@ class Dashboard extends Component {
         // User is logged in but has no profile
         dashboardContent = (
           <div>
-            <h4 className="lead text-muted">Welcome {user.name}</h4>
+            <PaperHeader title={`Welcome to your dashboard ${user.name}`} blob="You have not yet setup a profile, please add some info." actionLink="/create-profile" actionButton="Create Profile" paperColor="#f50057"/>
+            {/* <h4 className="lead text-muted"></h4>
             <p className="flow-text">You have not yet setup a profile, please add some info</p>
             <Link to="/create-profile" className="btn">
               <Button variant="outlined" color="primary">Create Profile</Button>
-            </Link>
+            </Link> */}
           </div>
         );
       }
@@ -63,7 +74,7 @@ class Dashboard extends Component {
       <div className="dashboard">
       <GridContainer>
         <GridItem xs={12} sm={12} md={12} >
-        <h1 className="display-4">Dashboard</h1>
+        {/* <PaperHeader title="Dashboard"/> */}
         </GridItem>
         <GridItem xs={12} sm={12} md={12}>
         {dashboardContent}

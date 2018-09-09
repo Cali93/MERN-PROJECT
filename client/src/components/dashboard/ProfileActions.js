@@ -5,15 +5,22 @@ import EducationIcon from '@material-ui/icons/Book';
 import ExperienceIcon from '@material-ui/icons/Work';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import {Link} from 'react-router-dom';
+import GridContainer from '../../common/GridContainer';
+import GridItem from '../../common/GridItem';
 
 export const ProfileActions = () => {
   return (
     <div>
-    <Paper square style={{ width: 'auto' }}>
-        <Link to="/edit-profile"><Button variant="contained" ><PersonPinIcon />EDIT PROFILE</Button></Link>
-        <Link to="/add-experience"><Button variant="contained"><ExperienceIcon />ADD EXPERIENCE</Button></Link>
-        <Link to="/add-education"><Button variant="contained"><EducationIcon />ADD EDUCATION</Button></Link>
-    </Paper>
+    <GridContainer>
+      <GridItem xs={12} sm={12} md={12}>
+        <Paper square style={{ width: 'auto' }}>
+            <Link to="/edit-profile"><Button variant="contained" ><PersonPinIcon />EDIT PROFILE</Button></Link>
+            <Link to="/add-experience"><Button variant="contained"><ExperienceIcon />ADD EXPERIENCE</Button></Link>
+            <Link to="/add-education"><Button variant="contained"><EducationIcon />ADD EDUCATION</Button></Link>
+        </Paper>
+      </GridItem>
+    </GridContainer>
+
     </div>
   )
 }

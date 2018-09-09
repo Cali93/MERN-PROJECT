@@ -98,6 +98,7 @@ class EditProfile extends Component {
         bio: profile.bio,
         twitter: profile.twitter,
         facebook: profile.facebook,
+        instagram: profile.instagram,
         linkedin: profile.linkedin,
         youtube: profile.youtube
       });
@@ -120,7 +121,7 @@ class EditProfile extends Component {
       facebook: this.state.facebook,
       linkedin: this.state.linkedin,
       youtube: this.state.youtube,
-      instagram: this.state.instagram,
+      instagram: this.state.instagram
     }
     console.log(newProfile);
 
@@ -324,32 +325,12 @@ class EditProfile extends Component {
     return (
       <div>
     <form onSubmit={this.handleSubmit}>
-    <PaperHeader title="Complete your profile" blob="Tell us a bit more about you !"/>
+    <PaperHeader title="Complete your profile" blob="Tell us a bit more about you !" prevButton/>
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardContent>
               <GridContainer>
-
-                  {/* <GridItem xs={12} sm={12} md={6}>
-                  <SelectList
-                    name="status"
-                    onChange={this.handleChange}
-                    value={this.state.status}
-                    label="Status"
-                    id="status"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                    inputProps={{
-                      placeholder:"* Select Professional status"
-                    }}
-                    options={options}
-                    errors={errors}
-                  />
-                  <FormHelperText>Give us an idea of where you are at in your career</FormHelperText>
-
-                </GridItem> */}
 
                 <GridItem xs={12} sm={12} md={6}>
                   <TextFieldGroup
