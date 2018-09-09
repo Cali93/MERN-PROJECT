@@ -7,7 +7,7 @@ import GridItem from './GridItem';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export const PaperHeader = ({title, blob, prevButton, actionButton, actionLink, textColor, paperColor}) => {
+export const ProfileCard = ({title, blob, prevButton, actionButton, actionLink, textColor, paperColor}) => {
   return (
     <div>
       <GridContainer>
@@ -27,7 +27,7 @@ export const PaperHeader = ({title, blob, prevButton, actionButton, actionLink, 
                   }}
                     color="primary"
                     variant="extendedFab">
-                    <PreviousButton/>{prevButton}
+                    <PreviousButton/>Go Back
                   </Button>}
                 </Link>
               </GridItem>
@@ -36,12 +36,12 @@ export const PaperHeader = ({title, blob, prevButton, actionButton, actionLink, 
                   marginRight: '20%'
                 }}>
                   <h2>{title}</h2>
-                  <p>{blob}</p>
+                  <div>{blob}</div>
                   {actionButton && 
                   <Link to={actionLink}>
                     <Button
-                    style={{marginBottom:'15px'}}
-                    color="primary"
+                    style={{margin:'15px 0 15px 0'}}
+                    color="secondary"
                     variant="extendedFab">
                     {actionButton}
                   </Button>
@@ -57,9 +57,9 @@ export const PaperHeader = ({title, blob, prevButton, actionButton, actionLink, 
   )
 }
 
-PaperHeader.propTypes = {
+ProfileCard.propTypes = {
   title: PropTypes.string.isRequired,
-  blob:PropTypes.string,
+  blob:PropTypes.object,
   prevButton:PropTypes.string,
   actionButton:PropTypes.string,
   actionLink:PropTypes.string,
@@ -67,7 +67,7 @@ PaperHeader.propTypes = {
   paperColor:PropTypes.string
 }
 
-PaperHeader.defaultProps = {
+ProfileCard.defaultProps = {
   paperColor: '#f50057',
   textColor: 'white'
 };

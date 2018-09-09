@@ -325,7 +325,7 @@ class EditProfile extends Component {
     return (
       <div>
     <form onSubmit={this.handleSubmit}>
-    <PaperHeader title="Complete your profile" blob="Tell us a bit more about you !" prevButton/>
+    <PaperHeader title="Complete your profile" blob="Tell us a bit more about you !" prevButton="Go Back"/>
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>

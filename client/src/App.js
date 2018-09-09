@@ -19,6 +19,8 @@ import Register  from './core/auth/Register';
 import Login from './core/auth/Login';
 import CreateProfile from './components/profile/create-profile/CreateProfile';
 import EditProfile from './components/profile/edit-profile/EditProfile';
+import Profiles from './components/profiles/Profiles';
+import Profile from './components/profile/profile/Profile';
 import AddExperience from './components/profile/add-experience/AddExperience';
 import AddEducation from './components/profile/add-education/AddEducation';
 import { Provider } from 'react-redux';
@@ -61,6 +63,8 @@ class App extends Component {
                 <Route path='/Contact' component={Contact} />
                 <Route path='/Register' component={Register} />
                 <Route path='/Login' component={Login} />
+                <Route path='/Profiles' component={Profiles} />
+                <Route path='/Profile/:handle' component={Profile} />
                 <Switch><PrivateRoute path='/create-profile' component={CreateProfile} /></Switch>                
                 <Switch><PrivateRoute path='/edit-profile' component={EditProfile} /></Switch>                
                 <Switch><PrivateRoute path='/add-experience' component={AddExperience} /></Switch>                

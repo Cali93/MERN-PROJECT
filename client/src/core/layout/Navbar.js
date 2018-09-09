@@ -89,6 +89,13 @@ function Navbar(props) {
                   </Typography>
                   </Button>
                 </NavLink>
+                <NavLink to="/profiles" className="col s3 m3 l3">
+                <Button className={classes.button} variant="contained" color="secondary">
+                  <Typography variant="title" color="inherit" className={classes.flex}>
+                    Developers
+                  </Typography>
+                  </Button>
+                </NavLink>
                 <NavLink className="col s3 m3 l3" to="/features">
                 <Button className={classes.button} variant="contained" color="secondary">                  
                 <Typography variant="title" color="inherit" className={classes.flex}>
