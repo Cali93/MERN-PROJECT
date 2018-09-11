@@ -10,19 +10,32 @@ import GridItem from '../../common/GridItem';
 
 export const ProfileActions = () => {
   return (
-    <div>
-    <GridContainer>
-      <GridItem xs={12} sm={12} md={12}>
-        <Paper square style={{ width: 'auto' }}>
-            <Link to="/edit-profile"><Button variant="contained" ><PersonPinIcon />EDIT PROFILE</Button></Link>
-            <Link to="/add-experience"><Button variant="contained"><ExperienceIcon />ADD EXPERIENCE</Button></Link>
-            <Link to="/add-education"><Button variant="contained"><EducationIcon />ADD EDUCATION</Button></Link>
-        </Paper>
-      </GridItem>
-    </GridContainer>
+    <div style={{
+      textAlign: 'center',
+      marginTop: '15px'
+    }}>
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={12}>
+          <GridContainer>
+            <GridItem xs={6} sm={4} md={4}>
+              <Link to="/edit-profile">
+                <Button variant="contained" color="secondary"><PersonPinIcon/>EDIT PROFILE</Button>
+              </Link>
+            </GridItem>
+            <GridItem xs={6} sm={4} md={4}>
+              <Link to="/add-experience">
+                <Button variant="contained" color="secondary"><ExperienceIcon/>ADD EXPERIENCE</Button>
+              </Link>
+            </GridItem>
+            <GridItem xs={6} sm={4} md={4}>
+              <Link to="/add-education">
+                <Button variant="contained" color="secondary"><EducationIcon/>ADD EDUCATION</Button>
+              </Link>
+            </GridItem>
+          </GridContainer>
+        </GridItem>
+      </GridContainer>
 
     </div>
   )
 }
-
-

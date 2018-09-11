@@ -38,7 +38,7 @@ const TextAreaFieldGroup = ({
         onChange={onChange}
       />
       {info && <small className="form-text text-muted">{info}</small>}
-      {error && <FormHelperText style={{marginTop:'-7px',color:'red'}}>{error}</FormHelperText>}
+      {error && <FormHelperText style={{marginTop:'-5px',color:'red'}}>{error}</FormHelperText>}
     </div>
   );
 };

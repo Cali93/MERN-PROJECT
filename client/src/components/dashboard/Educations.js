@@ -32,6 +32,9 @@ class Educations extends Component {
           <TableCell>
             {edu.degree}
           </TableCell>
+          <TableCell>
+            {edu.fieldOfStudy}
+          </TableCell>
           <TableCell >
             <Moment format="DD/MM/YYYY">{edu.from}</Moment>
             <span> - </span>
@@ -44,7 +47,7 @@ class Educations extends Component {
       ))
     return (
       <div>
-        <PaperHeader title="Education details" paperColor="#3f51b5"/>
+        <PaperHeader title="Education details" paperColor="#3f51b5" paperMargin="15px 0"/>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
           <Paper>
@@ -53,6 +56,7 @@ class Educations extends Component {
               <TableRow>
                 <TableCell>School</TableCell>
                 <TableCell>Degree</TableCell>
+                <TableCell>Field of Study</TableCell>
                 <TableCell>Years</TableCell>
                 <TableCell>Delete</TableCell>
               </TableRow>

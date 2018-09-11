@@ -12,6 +12,7 @@ import {Paper} from '@material-ui/core';
 import DatePicker from '../../../common/DatePicker';
 import {Switcher} from '../../../common/Switcher';
 import { addExperience } from '../../../actions/profileActions';
+import { PaperHeader } from '../../../common/PaperHeader';
 
 class AddExperience extends Component {
   state = {
@@ -71,40 +72,7 @@ class AddExperience extends Component {
 
     return (
       <div className="add-experience">
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={12}>
-            <Paper
-              style={{
-              textAlign: 'center',
-              color: 'white',
-              backgroundColor: '#f50057'
-            }}>
-              <GridContainer>
-
-                <GridItem xs={2} sm={2} md={2}>
-                  <Link to="/dashboard">
-                    <Button
-                      style={{
-                      marginTop: '25px'
-                    }}
-                      color="primary"
-                      variant="extendedFab">
-                      <PreviousButton/>Go Back
-                    </Button>
-                  </Link>
-                </GridItem>
-                <GridItem xs={10} sm={10} md={10}>
-                  <div style={{
-                    marginRight: '20%'
-                  }}>
-                    <h2>Add Experience</h2>
-                    <p>Add any job or position that you have had in the past or current</p>
-                  </div>
-                </GridItem>
-              </GridContainer>
-            </Paper>
-          </GridItem>
-        </GridContainer>
+      <PaperHeader title="Add Experience" blob="Add any job or position that you have had in the past or current" prevButton="Go Back" />
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Paper>

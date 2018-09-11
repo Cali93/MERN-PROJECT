@@ -5,7 +5,6 @@ import { getProfiles } from '../../actions/profileActions';
 import PropTypes from 'prop-types';
 import { PaperHeader } from '../../common/PaperHeader';
 import ProfileItem from './ProfileItem';
-import { Divider } from '@material-ui/core';
 
 class Profiles extends Component {
 

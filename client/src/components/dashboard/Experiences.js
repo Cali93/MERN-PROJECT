@@ -13,7 +13,7 @@ import {TableRow} from '@material-ui/core';
 import GridContainer from '../../common/GridContainer';
 import GridItem from '../../common/GridItem';
 import Moment from 'react-moment';
-
+import {isEmpty} from '../../utils/is-empty';
 import { deleteExperience } from '../../actions/profileActions';
 
 class Experiences extends Component {
@@ -32,6 +32,9 @@ class Experiences extends Component {
           <TableCell>
             {exp.title}
           </TableCell>
+          <TableCell>
+            {isEmpty(exp.location) ? null : exp.location} 
+          </TableCell>
           <TableCell >
             <Moment format="DD/MM/YYYY">{exp.from}</Moment>
             <span> - </span>
@@ -44,7 +47,7 @@ class Experiences extends Component {
       ))
     return (
       <div>
-        <PaperHeader title="Experience details" paperColor="#3f51b5"/>
+        <PaperHeader title="Experience details" paperColor="#3f51b5" paperMargin="15px 0"/>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
           <Paper>
@@ -53,6 +56,7 @@ class Experiences extends Component {
               <TableRow>
                 <TableCell>Company</TableCell>
                 <TableCell>Title</TableCell>
+                <TableCell>Location</TableCell>
                 <TableCell>Years</TableCell>
                 <TableCell>Delete</TableCell>
               </TableRow>

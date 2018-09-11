@@ -12,6 +12,7 @@ import {Paper} from '@material-ui/core';
 import DatePicker from '../../../common/DatePicker';
 import {Switcher} from '../../../common/Switcher';
 import { addEducation } from '../../../actions/profileActions';
+import { PaperHeader } from '../../../common/PaperHeader';
 
 class AddEducation extends Component {
   state = {
@@ -71,8 +72,8 @@ class AddEducation extends Component {
 
     return (
       <div className="add-education">
-        <GridContainer></GridContainer>
-        <GridContainer>
+      <PaperHeader title="Add Education" blob="Add any school, bootcamp, course, workshop you attended" prevButton="Go Back"/>
+        {/* <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Paper
               style={{
@@ -105,7 +106,7 @@ class AddEducation extends Component {
               </GridContainer>
             </Paper>
           </GridItem>
-        </GridContainer>
+        </GridContainer> */}
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Paper>

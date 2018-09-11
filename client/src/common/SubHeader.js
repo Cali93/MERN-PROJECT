@@ -3,8 +3,9 @@ import Paper from '@material-ui/core/Paper';
 import GridContainer from './GridContainer';
 import GridItem from './GridItem';
 import PropTypes from 'prop-types';
+import { Typography } from '@material-ui/core';
 
-export const SubHeader = ({title, description, textColor, paperColor}) => {
+export const SubHeader = ({title, description, textColor, paperColor, paperMargin}) => {
   return (
     <div>
       <GridContainer>
@@ -13,9 +14,10 @@ export const SubHeader = ({title, description, textColor, paperColor}) => {
             style={{
             textAlign: 'center',
             color: `${textColor}`,
-            backgroundColor: `${paperColor}`
+            backgroundColor: `${paperColor}`,
+            margin:`${paperMargin}`
           }}>
-          <h4>{title}</h4>
+          <Typography variant="title" style={{color:'white'}}>{title}</Typography>
           <p>{description}</p>
           </Paper>
         </GridItem>
