@@ -25,6 +25,7 @@ import Profile from './components/profile/profile/Profile';
 import AddExperience from './components/profile/add-experience/AddExperience';
 import AddEducation from './components/profile/add-education/AddEducation';
 import Posts from './components/posts/Posts';
+import Post from './components/post/Post';
 import { Provider } from 'react-redux';
 import { store } from './store';
 
@@ -68,10 +69,11 @@ class App extends Component {
                 <Route path='/Profiles' component={Profiles} />
                 <Route path='/Profile/:handle' component={Profile} />
                 <Switch><PrivateRoute path='/create-profile' component={CreateProfile} /></Switch>                
-                <Switch><PrivateRoute path='/feed' component={Posts} /></Switch>                
                 <Switch><PrivateRoute path='/edit-profile' component={EditProfile} /></Switch>                
                 <Switch><PrivateRoute path='/add-experience' component={AddExperience} /></Switch>                
                 <Switch><PrivateRoute path='/add-education' component={AddEducation} /></Switch>       
+                <Switch><PrivateRoute path='/feed' component={Posts} /></Switch>                
+                <Switch><PrivateRoute path='/post/:id' component={Post} /></Switch>                
                 <Route path='/not-found' component={NotFound} />
           </div>
       </BrowserRouter>

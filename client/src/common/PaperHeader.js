@@ -7,7 +7,7 @@ import GridItem from './GridItem';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export const PaperHeader = ({title, blob, prevButton, actionButton, actionLink, textColor, paperColor, paperMargin}) => {
+export const PaperHeader = ({title, blob, prevButton, prevLink, actionButton, actionLink, textColor, paperColor, paperMargin}) => {
   return (
     <div>
       <GridContainer>
@@ -21,16 +21,19 @@ export const PaperHeader = ({title, blob, prevButton, actionButton, actionLink, 
           }}>
             <GridContainer>
               <GridItem xs={2} sm={2} md={2}>
-                <Link to="/dashboard">
-                  {prevButton &&<Button
+                
+                  {prevButton &&
+                  <Link to={prevLink}>
+                  <Button
                     style={{
                     marginTop: '25px'
                   }}
                     color="primary"
                     variant="extendedFab">
                     <PreviousButton/>{prevButton}
-                  </Button>}
-                </Link>
+                  </Button>
+                  </Link>}
+                
               </GridItem>
               <GridItem xs={10} sm={10} md={10}>
                 <div style={{
@@ -62,6 +65,7 @@ PaperHeader.propTypes = {
   title: PropTypes.string.isRequired,
   blob:PropTypes.string,
   prevButton:PropTypes.string,
+  prevLink:PropTypes.string,
   paperMargin:PropTypes.string,
   actionButton:PropTypes.string,
   actionLink:PropTypes.string,
@@ -71,5 +75,6 @@ PaperHeader.propTypes = {
 
 PaperHeader.defaultProps = {
   paperColor: '#f50057',
-  textColor: 'white'
+  textColor: 'white',
+  prevLink: '/dashboard'
 };

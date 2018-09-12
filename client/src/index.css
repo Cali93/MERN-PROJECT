@@ -18,6 +18,10 @@ body {
    margin: 0px !important;
  }
 
+ .liked-btn {
+   color: rgb(3, 139, 44) !important;
+ }
+
  @keyframes move_wave {
   0% {
       transform: translateX(0) translateZ(0) scaleY(1)

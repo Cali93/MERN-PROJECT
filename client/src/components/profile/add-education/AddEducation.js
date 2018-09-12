@@ -73,40 +73,6 @@ class AddEducation extends Component {
     return (
       <div className="add-education">
       <PaperHeader title="Add Education" blob="Add any school, bootcamp, course, workshop you attended" prevButton="Go Back"/>
-        {/* <GridContainer>
-          <GridItem xs={12} sm={12} md={12}>
-            <Paper
-              style={{
-              textAlign: 'center',
-              color: 'white',
-              backgroundColor: '#f50057'
-            }}>
-              <GridContainer>
-
-                <GridItem xs={2} sm={2} md={2}>
-                  <Link to="/dashboard">
-                    <Button
-                      style={{
-                      marginTop: '25px'
-                    }}
-                      color="primary"
-                      variant="extendedFab">
-                      <PreviousButton/>Go Back
-                    </Button>
-                  </Link>
-                </GridItem>
-                <GridItem xs={10} sm={10} md={10}>
-                  <div style={{
-                    marginRight: '20%'
-                  }}>
-                    <h2>Add Education</h2>
-                    <p>Add any school, bootcamp, course, workshop you attended</p>
-                  </div>
-                </GridItem>
-              </GridContainer>
-            </Paper>
-          </GridItem>
-        </GridContainer> */}
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Paper>

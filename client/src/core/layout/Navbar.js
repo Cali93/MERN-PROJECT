@@ -60,6 +60,7 @@ function Navbar(props) {
 
   const guestLinks = (
     <div style={{padding:'10px'}}>
+    
       <MenuComponent/>
     </div>);
 

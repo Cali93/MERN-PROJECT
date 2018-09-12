@@ -36,6 +36,11 @@ router.delete('/:id', passport.authenticate('jwt', {session: false}), postsCtrl.
 // @access        Private
 router.post('/like/:id', passport.authenticate('jwt', {session: false}), postsCtrl.likePost);
 
+// @route GET     api/posts/unlike/:id
+// @description   Unlike a post
+// @access        Private
+router.post('/unlike/:id', passport.authenticate('jwt', {session: false}), postsCtrl.unlikePost);
+
 // @route GET     api/posts/comment/:id
 // @description   Add a comment to a post
 // @access        Private
