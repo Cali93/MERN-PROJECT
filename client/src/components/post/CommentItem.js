@@ -43,7 +43,7 @@ class CommentItem extends Component {
                     backgroundColor:'#3f51b5'
                   }}>
                     <Link to={`/profile/${auth.user.handle}`}>
-                      <img src={comment.avatar} style={styles.profileImage}></img>
+                      <img src={comment.avatar} style={styles.profileImage} alt="avatar"></img>
                       <p>
                         <Button variant="raised">{comment.name}</Button>
                       </p>

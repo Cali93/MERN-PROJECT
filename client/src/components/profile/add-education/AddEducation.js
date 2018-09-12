@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import TextAreaFieldGroup from '../../../common/TextAreaFieldGroup';
 import TextFieldGroup from '../../../common/textFieldGroup';
 import {connect} from 'react-redux';
@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import GridContainer from '../../../common/GridContainer';
 import GridItem from '../../../common/GridItem';
 import Button from '@material-ui/core/Button';
-import PreviousButton from '@material-ui/icons/KeyboardArrowLeft';
 import {Paper} from '@material-ui/core';
 import DatePicker from '../../../common/DatePicker';
 import {Switcher} from '../../../common/Switcher';

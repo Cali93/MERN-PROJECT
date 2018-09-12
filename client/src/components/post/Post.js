@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {getPost} from '../../actions/postActions';
-import { Link } from 'react-router-dom';
 
 import Spinner from '../../common/Spinner';
 import GridContainer from '../../common/GridContainer';

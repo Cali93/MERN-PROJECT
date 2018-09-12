@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
 import {Link} from 'react-router-dom';
-import {Paper, Button, Divider, Typography, IconButton} from '@material-ui/core';
+import {Paper, Button, Divider, Typography} from '@material-ui/core';
 // import Icon from '@material-ui/core/Icon';
 import ThumbsUp from '@material-ui/icons/ThumbUp';
 import ThumbsDown from '@material-ui/icons/ThumbDown';
@@ -11,8 +11,6 @@ import CommentIcon from '@material-ui/icons/Comment';
 import DeleteIcon from '@material-ui/icons/Delete';
 import GridContainer from '../../common/GridContainer';
 import GridItem from '../../common/GridItem';
-import {ProfileCard} from '../../common/ProfileCard';
-import {isEmpty} from '../../utils/is-empty';
 import {deletePost, addLike, removeLike} from '../../actions/postActions';
 
 class PostItem extends Component {
@@ -73,7 +71,7 @@ class PostItem extends Component {
                     backgroundColor:'#3f51b5'
                   }}>
                     <Link to={`/profile/${auth.user.handle}`}>
-                      <img src={post.avatar} style={styles.profileImage}></img>
+                      <img src={post.avatar} style={styles.profileImage} alt="avatar"></img>
                       <p>
                         <Button variant="raised">{post.name}</Button>
                       </p>

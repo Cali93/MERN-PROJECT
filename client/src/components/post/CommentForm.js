@@ -6,7 +6,6 @@ import {addComment} from '../../actions/postActions';
 import GridContainer from '../../common/GridContainer';
 import GridItem from '../../common/GridItem';
 import {Paper, Button} from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
 import {SubHeader} from '../../common/SubHeader';
 
 class CommentForm extends Component {
