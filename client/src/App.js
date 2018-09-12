@@ -28,6 +28,8 @@ import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
 import { Provider } from 'react-redux';
 import { store } from './store';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
 
 import './App.css';
 // Check for token
@@ -54,10 +56,29 @@ if (localStorage.jwtToken){
 class App extends Component {
 
   render() {
+
+    const theme = createMuiTheme({
+      palette: {
+        primary: {
+          // light: will be calculated from palette.primary.main,
+          main: '#ff4400',
+          // dark: will be calculated from palette.primary.main,
+          // contrastText: will be calculated to contrast with palette.primary.main
+        },
+        secondary: {
+          light: '#0066ff',
+          main: '#0044ff',
+          // dark: will be calculated from palette.secondary.main,
+          contrastText: '#ffcc00',
+        },
+        // error: will use the default color
+      },
+    });
     return (
       <Provider store={store}>
         <BrowserRouter>
           <div>
+            <MuiThemeProvider>
             <Navbar/>
             <Route exact path='/' component={Home} />
                 <Route path='/Features' component={Features} />
@@ -75,6 +96,8 @@ class App extends Component {
                 <Switch><PrivateRoute path='/feed' component={Posts} /></Switch>                
                 <Switch><PrivateRoute path='/post/:id' component={Post} /></Switch>                
                 <Route path='/not-found' component={NotFound} />
+            </MuiThemeProvider>
+            
           </div>
       </BrowserRouter>
      </Provider>
