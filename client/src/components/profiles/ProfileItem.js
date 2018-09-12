@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {isEmpty} from '../../utils/is-empty';
 import GridContainer from '../../common/GridContainer';
 import GridItem from '../../common/GridItem';
-import {Paper, Divider} from '@material-ui/core';
+import {Paper, Divider, Typography} from '@material-ui/core';
 import {ProfileCard} from '../../common/ProfileCard';
 import Chip from '@material-ui/core/Chip';
 import {SubHeader} from '../../common/SubHeader';
@@ -73,8 +73,12 @@ class ProfileItem extends Component {
                       </div>
                     </GridItem>
                     <GridItem xs={12} sm={12} md={6}>
-                      <SubHeader paperColor="#3f51b5" title="Reviews"/>
-                      <div></div>
+                      <SubHeader paperColor="#3f51b5" title={`About ${profile.user.name}`}/>
+                      <div>
+                        <Typography variant="subheading">
+                          {profile.bio}
+                        </Typography>
+                      </div>
                     </GridItem>
                   </GridContainer>
                 </GridItem>
