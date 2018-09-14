@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-const postsCtrl = require('../../controllers/posts');
+const postsCtrl = require('../controllers/posts');
 
 // @route GET     api/posts/posts
 // @description   Test posts route

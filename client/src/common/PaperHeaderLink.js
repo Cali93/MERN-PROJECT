@@ -15,7 +15,7 @@ export const PaperHeaderLink = ({title, blob, prevButton, actionButton, actionLi
             style={{
             textAlign: 'center',
             color: 'white',
-            backgroundColor: '#f50057'//'#3f51b5'
+            backgroundColor: '#FF8F00'//'#F9A825'
           }}>
             <GridContainer>
               <GridItem xs={2} sm={2} md={2}>

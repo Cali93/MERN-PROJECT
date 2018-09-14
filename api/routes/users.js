@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
-const userCtrl = require('../../controllers/users');
+const userCtrl = require('../controllers/users');
 // @route GET     api/users/register
 // @description   Register user
 // @access        Public

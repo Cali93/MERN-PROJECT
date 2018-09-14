@@ -3,7 +3,7 @@ const router = express.Router();
 
 const passport = require('passport');
 
-const profileCtrl = require('../../controllers/profile');
+const profileCtrl = require('../controllers/profile');
 
 // @route GET     api/profile/profile
 // @description   Test profile route

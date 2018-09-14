@@ -39,13 +39,13 @@ class ProfileHeader extends Component {
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Paper style={{
-              backgroundColor: '#f50057'
+              backgroundColor: '#FF8F00'
             }}>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
                   <ProfileBanner
                     profile={profile}
-                    paperColor="#3f51b5"
+                    paperColor="#F9A825"
                     title={profile.user.name}
                     blob={profileContent}/> {/* actionButton="Follow" actionLink={`/profile/${profile.handle}`} */}
                 </GridItem>

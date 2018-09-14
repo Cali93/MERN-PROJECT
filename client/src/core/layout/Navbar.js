@@ -118,10 +118,10 @@ function Navbar(props) {
 
   const authNavLinks = (
     <div>
-      <NavLink to="/feed">
+      <NavLink to="/projects">
         <Button className={classes.button} variant="contained" color="secondary">
           <Typography variant="title" color="inherit" className={classes.flex}>
-            Posts
+            Projects
           </Typography>
         </Button>
       </NavLink>
@@ -129,6 +129,13 @@ function Navbar(props) {
         <Button className={classes.button} variant="contained" color="secondary">
           <Typography variant="title" color="inherit" className={classes.flex}>
             Developers
+          </Typography>
+        </Button>
+      </NavLink>
+      <NavLink to="/feed">
+        <Button className={classes.button} variant="contained" color="secondary">
+          <Typography variant="title" color="inherit" className={classes.flex}>
+            Posts
           </Typography>
         </Button>
       </NavLink>

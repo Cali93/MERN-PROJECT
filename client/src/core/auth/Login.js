@@ -5,23 +5,44 @@ import {connect} from 'react-redux';
 import {loginUser} from '../../actions/authActions';
 // import classnames from 'classnames';
 import TextFieldGroup from '../../common/textFieldGroup';
-import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
-import Paper from '@material-ui/core/Paper';
+
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Icon from "@material-ui/core/Icon";
+// @material-ui/icons
+import Email from "@material-ui/icons/Email";
+import {Button, Divider, Paper} from '@material-ui/core';
+
 import {PaperHeader} from '../../common/PaperHeader';
 import GridContainer from '../../common/GridContainer';
 import GridItem from '../../common/GridItem';
+import Card from "../../common/Card/Card.jsx";
+import CardBody from "../../common/Card/CardBody.jsx";
+import CardHeader from "../../common/Card/CardHeader.jsx";
+import CardFooter from "../../common/Card/CardFooter.jsx";
+import CustomInput from "../../common/CustomInput/CustomInput.jsx";
 // import {Switcher} from '../../common/Switcher';
+import image from "../../assets/img/bg7.jpg";
+import loginPageStyle from "../../assets/jss/material-kit-react/views/loginPage.jsx";
 
 class Login extends Component {
   state = {
     email: '',
     password: '',
     remember: false,
+    cardAnimaton: "cardHidden",
     errors: {}
   }
 
   componentDidMount() {
+    // we add a hidden class to the card and after 700 ms we delete it and the transition appears
+    setTimeout(
+      function() {
+        this.setState({ cardAnimaton: "" });
+      }.bind(this),
+      700
+    );
     if (this.props.auth.isAuthenticated) {
       this
         .props
@@ -74,90 +95,125 @@ class Login extends Component {
         marginBottom: '15px'
       }
     }
+    const { classes, ...rest } = this.props;
 
     return (
-      <div>
-        <div className="waveWrapper waveAnimation">
-          <div className="waveWrapperInner bgTop">
-            <div className="wave waveTop"></div>
-          </div>
-          <div className="waveWrapperInner bgMiddle">
-            <div className="wave waveMiddle"></div>
-          </div>
-          <div className="waveWrapperInner bgBottom">
-            <div className="wave waveBottom"></div>
-          </div>
-        </div>
-        <PaperHeader title="LOGIN" blob="Enter the void"/>
-        <div id="user-login">
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={12}>
-              <Paper>
-                <div >
-                  <form onSubmit={this.handleSubmit} className="login-htmlForm">
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={12}>
-                        <i className="mdi-communication-email prefix"></i>
-                        <TextFieldGroup
-                          id="user_email"
-                          label="Email"
-                          type="email"
-                          name="email"
-                          value={this.state.email}
-                          onChange={this.handleChange}
-                          error={errors.email}/> {/* <label htmlFor="user_email" className="center-align">Email</label> */}
-                      </GridItem>
-                    </GridContainer>
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={12}>
-                        <i className="mdi-action-lock-outline prefix"></i>
-                        <TextFieldGroup
-                          id="user_pass"
-                          type="password"
-                          label="Password"
-                          name="password"
-                          value={this.state.password}
-                          onChange={this.handleChange}
-                          error={errors.password}/> {/* <label htmlFor="password">Password</label> */}
-                      </GridItem>
-                    </GridContainer>
+        <div
+          className={classes.pageHeader}
+          style={{
+            backgroundImage: "url(" + image + ")",
+            backgroundSize: "cover",
+            backgroundPosition: "top center"
+          }}
+        >
+          <div className={classes.container}>
+            <GridContainer justify="center">
+              <GridItem xs={12} sm={12} md={4}>
+                <Card className={classes[this.state.cardAnimaton]}>
+                  <form className={classes.form}>
+                    <CardHeader color="primary" className={classes.cardHeader}>
+                      <h4>LOGIN</h4>
+                      <div className={classes.socialLine}>
+                        <Button
+                          justIcon
+                          href="#pablo"
+                          target="_blank"
+                          color="transparent"
+                          onClick={e => e.preventDefault()}
+                        >
+                          <i className={"fab fa-twitter"} />
+                        </Button>
+                        <Button
+                          justIcon
+                          href="#pablo"
+                          target="_blank"
+                          color="transparent"
+                          onClick={e => e.preventDefault()}
+                        >
+                          <i className={"fab fa-facebook"} />
+                        </Button>
+                        <Button
+                          justIcon
+                          href="#pablo"
+                          target="_blank"
+                          color="transparent"
+                          onClick={e => e.preventDefault()}
+                        >
+                          <i className={"fab fa-google-plus-g"} />
+                        </Button>
+                      </div>
+                    </CardHeader>
+                    <p className={classes.divider}>Or Be Classical</p>
+                    <CardBody>
+                      <CustomInput
+                        labelText="Email..."
+                        id="email"
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                        inputProps={{
+                          type: "email",
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <Email className={classes.inputIconsColor} />
+                            </InputAdornment>
+                          )
+                        }}
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        error={errors.email}
+                      />
+                      <CustomInput
+                        labelText="Password"
+                        id="pass"
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                        inputProps={{
+                          type: "password",
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <Icon className={classes.inputIconsColor}>
+                                lock_outline
+                              </Icon>
+                            </InputAdornment>
+                          )
+                        }}
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        error={errors.password}
+                      />
+                    </CardBody>
+                    <CardFooter className={classes.cardFooter}>
+                    <GridContainer style={{textAlign:'center'}}>
+                    <GridItem xs={12} sm={12} md={12}>
+                    <Button onClick={this.handleSubmit} variant="contained" color="secondary">Login</Button>
 
-                    <div style={{
-                      textAlign: 'center'
-                    }}>
-                      <GridContainer>
-                        <GridItem xs={12} sm={12} md={12}>
-                          {/* <Switcher
-                          label="Rember me"
-                          id="remember-me"
-                          name="remember"
-                          checked={this.state.remember}
-                          onChange={this.handleChange}/> */}
-                          <div style={styles.marginTopBot}>
-                            <Button onClick={this.handleSubmit} variant="contained" color="secondary">Login</Button>
-                          </div>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={12}>
+                    </GridItem>
+                    <GridItem xs={12} sm={12} md={12} style={styles.marginTopBot}>
                           <Divider/>
                           <small>Don't have an account yet ?
                           </small>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={12}>
-                          <div style={styles.marginTopBot}>
+                          <div >
                             <Link to="/register">
                               <Button variant="contained" color="primary">Register</Button>
                             </Link>
                           </div>
                         </GridItem>
-                      </GridContainer>
-                    </div>
+                    </GridContainer>
+
+                    </CardFooter>
                   </form>
-                </div>
-              </Paper>
-            </GridItem>
-          </GridContainer>
+                </Card>
+              </GridItem>
+            </GridContainer>
+          </div>
+          {/* <Footer whiteFont /> */}
         </div>
-      </div>
     )
   }
 }
@@ -167,4 +223,4 @@ Login.propTypes = {
   errors: PropTypes.object.isRequired
 }
 const mapStateToProps = (state) => ({auth: state.auth, errors: state.errors});
-export default connect(mapStateToProps, {loginUser})(Login);
+export default connect(mapStateToProps, {loginUser})(withStyles(loginPageStyle)(Login));

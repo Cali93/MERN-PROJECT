@@ -32,7 +32,7 @@ class ProfileAbout extends Component {
             }}>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={6}>
-                  <SubHeader paperColor="#3f51b5" title={`About ${profile.user.name}`}/>
+                  <SubHeader paperColor="#F9A825" title={`About ${profile.user.name}`}/>
                   <GridItem xs={12} sm={12} md={12}>
                     <Paper style={{
                       padding: '8px'
@@ -48,7 +48,7 @@ class ProfileAbout extends Component {
                   </GridItem>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
-                  <SubHeader paperColor="#3f51b5" title="Skills"/>
+                  <SubHeader paperColor="#F9A825" title="Skills"/>
                   <GridItem xs={12} sm={12} md={12}>
                     <Paper style={{
                       padding: '5px'

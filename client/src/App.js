@@ -32,6 +32,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
 import './App.css';
+import Projects from './components/projects/Projects';
 // Check for token
 if (localStorage.jwtToken){
   // Set auth token header auth
@@ -61,16 +62,23 @@ class App extends Component {
       palette: {
         primary: {
           // light: will be calculated from palette.primary.main,
-          main: '#ff4400',
+          main: '#212121',
           // dark: will be calculated from palette.primary.main,
           // contrastText: will be calculated to contrast with palette.primary.main
         },
         secondary: {
-          light: '#0066ff',
-          main: '#0044ff',
+          // light: '#0066ff',
+          main: '#F9A825'
           // dark: will be calculated from palette.secondary.main,
-          contrastText: '#ffcc00',
+          // contrastText: '#ffcc00',
         },
+        danger:{
+          main: '#BF360C'
+        },
+        accent:{
+          dark: '#424242',
+          light: '#F57F17'
+        }
         // error: will use the default color
       },
     });
@@ -78,7 +86,7 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <div>
-            <MuiThemeProvider>
+            <MuiThemeProvider theme={theme}>
             <Navbar/>
             <Route exact path='/' component={Home} />
                 <Route path='/Features' component={Features} />
@@ -89,6 +97,7 @@ class App extends Component {
                 <Route path='/Login' component={Login} />
                 <Route path='/Profiles' component={Profiles} />
                 <Route path='/Profile/:handle' component={Profile} />
+                <Switch><PrivateRoute path='/projects' component={Projects} /></Switch>                
                 <Switch><PrivateRoute path='/create-profile' component={CreateProfile} /></Switch>                
                 <Switch><PrivateRoute path='/edit-profile' component={EditProfile} /></Switch>                
                 <Switch><PrivateRoute path='/add-experience' component={AddExperience} /></Switch>                

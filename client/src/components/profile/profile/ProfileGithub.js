@@ -83,7 +83,7 @@ class ProfileGithub extends Component {
             }}>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
-                  <SubHeader paperColor="#3f51b5" title="Latest GitHub repositories"/>
+                  <SubHeader paperColor="#F9A825" title="Latest GitHub repositories"/>
                   <GridContainer>
                     <GridItem xs={12} sm={12} md={12}>
                       <Paper

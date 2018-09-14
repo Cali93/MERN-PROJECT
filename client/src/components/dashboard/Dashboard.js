@@ -89,7 +89,7 @@ class Dashboard extends Component {
                   blob="You have not yet setup a profile, please add some info."
                   actionLink="/create-profile"
                   actionButton="Create Profile"
-                  paperColor="#f50057"/>
+                  paperColor="#FF8F00"/>
               </GridItem>
             </GridContainer>
           </div>

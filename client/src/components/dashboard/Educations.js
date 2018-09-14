@@ -47,7 +47,7 @@ class Educations extends Component {
       ))
     return (
       <div>
-        <PaperHeader title="Education details" paperColor="#3f51b5" paperMargin="15px 0"/>
+        <PaperHeader title="Education details" paperColor="#F9A825" paperMargin="15px 0"/>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
           <Paper>

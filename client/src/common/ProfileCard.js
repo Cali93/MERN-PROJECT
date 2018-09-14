@@ -68,6 +68,6 @@ ProfileCard.propTypes = {
 }
 
 ProfileCard.defaultProps = {
-  paperColor: '#f50057',
+  paperColor: '#FF8F00',
   textColor: 'white'
 };

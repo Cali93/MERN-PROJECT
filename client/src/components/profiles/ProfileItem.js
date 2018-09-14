@@ -44,7 +44,7 @@ class ProfileItem extends Component {
               <GridContainer>
                 <GridItem xs={12} sm={12} md={4}>
                   <ProfileCard
-                    paperColor="#3f51b5"
+                    paperColor="#F9A825"
                     title={profile.user.name}
                     blob={profileContent}
                     actionButton="View Profile"
@@ -53,7 +53,7 @@ class ProfileItem extends Component {
                 <GridItem xs={12} sm={12} md={8}>
                   <GridContainer>
                     <GridItem xs={12} sm={12} md={6}>
-                      <SubHeader paperColor="#3f51b5" title="Skills"/>
+                      <SubHeader paperColor="#F9A825" title="Skills"/>
                       <div
                         className="list-group-item"
                         style={{
@@ -73,7 +73,7 @@ class ProfileItem extends Component {
                       </div>
                     </GridItem>
                     <GridItem xs={12} sm={12} md={6}>
-                      <SubHeader paperColor="#3f51b5" title={`About ${profile.user.name}`}/>
+                      <SubHeader paperColor="#F9A825" title={`About ${profile.user.name}`}/>
                       <div>
                         <Typography variant="subheading">
                           {profile.bio}

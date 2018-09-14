@@ -2,9 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const users = require('./routes/api/users');
-const profile = require('./routes/api/profile');
-const posts = require('./routes/api/posts');
+const users = require('./api/routes/users');
+const profile = require('./api/routes/profile');
+const posts = require('./api/routes/posts');
+const projects = require('./api/routes/projects');
 const cors = require('cors');
 const path = require('path');
 
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 // DB Config
-const db = require('./config/keys').mongoURI;
+const db = require('./api/config/keys').mongoURI;
 
 mongoose
   .connect(db, {
@@ -31,12 +32,13 @@ mongoose
 app.use(passport.initialize());
 
 // Passport Config
-require('./config/passport')(passport);
+require('./api/config/passport')(passport);
 
 // Use routes
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);
+app.use('/api/projects', projects);
 
 // Server static assets if in production
 if(process.env.NODE_ENV === 'production'){

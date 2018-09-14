@@ -17,7 +17,7 @@ export const SubHeader = ({title, description, textColor, paperColor, paperMargi
             backgroundColor: `${paperColor}`,
             margin:`${paperMargin}`
           }}>
-          <Typography variant="title" style={{color:'white'}}>{title}</Typography>
+          <Typography variant="title">{title}</Typography>
           <p>{description}</p>
           </Paper>
         </GridItem>
@@ -32,6 +32,6 @@ SubHeader.propTypes = {
 }
 
 SubHeader.defaultProps = {
-  paperColor: '#f50057',
-  textColor: 'white'
+  paperColor: '#FF8F00',
+  textColor: '#212121'
 };

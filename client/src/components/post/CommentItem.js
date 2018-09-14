@@ -40,7 +40,7 @@ class CommentItem extends Component {
                     style={{
                     margin: '10px 0',
                     padding: '10px',
-                    backgroundColor:'#3f51b5'
+                    backgroundColor:'#F9A825'
                   }}>
                     <Link to={`/profile/${auth.user.handle}`}>
                       <img src={comment.avatar} style={styles.profileImage} alt="avatar"></img>

@@ -44,7 +44,7 @@ class CommentForm extends Component {
     const {errors} = this.state;
     return (
       <div>
-        <SubHeader paperColor="#3f51b5" title="Make a comment" paperMargin="10px 0"/>
+        <SubHeader paperColor="#F9A825" title="Make a comment" paperMargin="10px 0"/>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Paper>

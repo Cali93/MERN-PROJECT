@@ -103,7 +103,7 @@ class ProfileInfos extends Component {
             }}>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={6}>
-                  <SubHeader paperColor="#3f51b5" title="Experiences"/>
+                  <SubHeader paperColor="#F9A825" title="Experiences"/>
                   <GridContainer>
                     <GridItem xs={12} sm={12} md={12}>
                       <Paper
@@ -124,7 +124,7 @@ class ProfileInfos extends Component {
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={6}>
-                  <SubHeader paperColor="#3f51b5" title="Educations"/>
+                  <SubHeader paperColor="#F9A825" title="Educations"/>
                   <GridContainer>
                     <GridItem xs={12} sm={12} md={12}>
                       <Paper
