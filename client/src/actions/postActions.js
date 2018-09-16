@@ -5,9 +5,9 @@ import {
   GET_POST,
   GET_ERRORS,
   POST_LOADING,
-  DELETE_POST,
-  CLEAR_ERRORS
+  DELETE_POST
 } from './types';
+import {clearErrors} from '../utils/clearErrors';
 
 // Add post
 export const addPost = postData => dispatch => {
@@ -127,9 +127,4 @@ export const deleteComment = (postId, commentId) => dispatch => {
 // Set loading state
 export const setPostLoading = () => {
   return {type: POST_LOADING}
-}
-
-// Clear errors
-export const clearErrors = () => {
-  return {type: CLEAR_ERRORS}
 }

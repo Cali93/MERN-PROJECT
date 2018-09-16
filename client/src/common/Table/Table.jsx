@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import Table from "@material-ui/core/Table";
@@ -11,7 +12,7 @@ import TableCell from "@material-ui/core/TableCell";
 import tableStyle from "../../assets/jss/material-kit-react/components/tableStyle";
 
 function CustomTable({ ...props }) {
-  const { classes, tableHead, tableData, tableHeaderColor } = props;
+  const { classes, tableHead, tableData, tableHeaderColor, handleRowClick, rowLink } = props;
 
   return (
     <div className={classes.tableResponsive}>
@@ -37,21 +38,26 @@ function CustomTable({ ...props }) {
             tableData.map((prop, key) => {
               if(prop){
                 return (
-                  <TableRow key={key}>
+                  // <Link key={prop._id} to={`${rowLink}/${prop._id}`}>
+                  <TableRow key={prop._id} id={prop._id} onClick={()=>handleRowClick(prop._id)}>
                   {Object.keys(prop).map((objKey, key) => {
                     if (objKey !== '_id'){
                       return (
                           <TableCell className={classes.tableCell} key={key}>
-                            {prop[objKey] && console.log(prop[objKey])}
                             {prop[objKey]}
                           </TableCell>
                         );
+                      } else {
+                        return null;
                       }
                     })}
                   </TableRow>
+                  // </Link>
                 );
+              } else {
+                return <TableRow key={key}></TableRow>
               }
-            }) : null
+            }) : <TableRow></TableRow>
             }
         </TableBody>
       </Table>
@@ -75,7 +81,9 @@ CustomTable.propTypes = {
     "gray"
   ]),
   tableHead: PropTypes.arrayOf(PropTypes.string),
-  tableData: PropTypes.arrayOf(PropTypes.object)
+  tableData: PropTypes.arrayOf(PropTypes.object),
+  handleRowClick: PropTypes.func,
+  rowLink: PropTypes.string
 };
 
 export default withStyles(tableStyle)(CustomTable);

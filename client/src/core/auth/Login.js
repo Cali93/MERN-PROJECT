@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {loginUser} from '../../actions/authActions';
-// import classnames from 'classnames';
-import TextFieldGroup from '../../common/textFieldGroup';
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -12,9 +10,8 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
-import {Button, Divider, Paper} from '@material-ui/core';
+import {Divider} from '@material-ui/core';
 
-import {PaperHeader} from '../../common/PaperHeader';
 import GridContainer from '../../common/GridContainer';
 import GridItem from '../../common/GridItem';
 import Card from "../../common/Card/Card.jsx";
@@ -22,7 +19,7 @@ import CardBody from "../../common/Card/CardBody.jsx";
 import CardHeader from "../../common/Card/CardHeader.jsx";
 import CardFooter from "../../common/Card/CardFooter.jsx";
 import CustomInput from "../../common/CustomInput/CustomInput.jsx";
-// import {Switcher} from '../../common/Switcher';
+import Button from "../../common/CustomButtons/Button.jsx"
 import image from "../../assets/img/bg7.jpg";
 import loginPageStyle from "../../assets/jss/material-kit-react/views/loginPage.jsx";
 
@@ -95,7 +92,7 @@ class Login extends Component {
         marginBottom: '15px'
       }
     }
-    const { classes, ...rest } = this.props;
+    const { classes } = this.props;
 
     return (
         <div
@@ -189,7 +186,7 @@ class Login extends Component {
                     <CardFooter className={classes.cardFooter}>
                     <GridContainer style={{textAlign:'center'}}>
                     <GridItem xs={12} sm={12} md={12}>
-                    <Button onClick={this.handleSubmit} variant="contained" color="secondary">Login</Button>
+                    <Button onClick={this.handleSubmit} variant="contained" color="primary">Login</Button>
 
                     </GridItem>
                     <GridItem xs={12} sm={12} md={12} style={styles.marginTopBot}>
@@ -200,7 +197,7 @@ class Login extends Component {
                         <GridItem xs={12} sm={12} md={12}>
                           <div >
                             <Link to="/register">
-                              <Button variant="contained" color="primary">Register</Button>
+                              <Button variant="contained" color="secondary">Register</Button>
                             </Link>
                           </div>
                         </GridItem>

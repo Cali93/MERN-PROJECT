@@ -1,41 +1,25 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
-// core components
-import GridItem from "../../../common/GridItem";
-import GridContainer from "../../../common/GridContainer";
-// import Card from "@material-ui/core/Card";
-// import CardHeader from '@material-ui/core/CardHeader';
-// import Avatar from '@material-ui/core/Avatar';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-// import AccountCircle from '@material-ui/icons/AccountCircle';
-import WorkIcon from '@material-ui/icons/Work';
-
-import FormHelperText from '@material-ui/core/FormHelperText';
-
-import TextAreaFieldGroup from "../../../common/TextAreaFieldGroup";
-import TextFieldGroup from "../../../common/textFieldGroup";
-// import SelectList from '../../common/SelectList'; import avatar from
-// "../../assets/img/marc.jpg";
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {createProject} from '../../../actions/projectActions';
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Email from "@material-ui/icons/Email";
-import Work from "@material-ui/icons/Work";
-import {Button, Divider} from '@material-ui/core';
 
+// @material-ui/icons
+import Icon from "@material-ui/core/Icon";
+import Work from "@material-ui/icons/Work";
+import {Button} from '@material-ui/core';
+
+// core components
+import GridItem from "../../../common/GridItem";
+import GridContainer from "../../../common/GridContainer";
 import Card from "../../../common/Card/Card.jsx";
 import CardBody from "../../../common/Card/CardBody.jsx";
 import CardHeader from "../../../common/Card/CardHeader.jsx";
 import CardFooter from "../../../common/Card/CardFooter.jsx";
 import CustomInput from "../../../common/CustomInput/CustomInput.jsx";
-
-import {createProject} from '../../../actions/projectActions';
 
 import projectPageStyle from '../../../assets/jss/material-kit-react/views/projectPage';
 
@@ -43,8 +27,8 @@ class CreateProject extends Component {
   state = {
     name: '',
     description: '',
-    budget: '',
     customer: '',
+    budget: '',
     errors: {}
   }
   componentWillReceiveProps(nextProps) {
@@ -79,27 +63,7 @@ class CreateProject extends Component {
   }
 
   render() {
-    const styles = {
-      cardCategoryWhite: {
-        color: "rgba(255,255,255,.62)",
-        margin: "0",
-        fontSize: "14px",
-        marginTop: "0",
-        marginBottom: "0"
-      },
-      cardTitleWhite: {
-        color: "#FFFFFF",
-        marginTop: "0px",
-        minHeight: "auto",
-        fontWeight: "300",
-        fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-        marginBottom: "3px",
-        textDecoration: "none"
-      },
-      location: {
-        fontSize: "14px"
-      }
-    };
+
     const {errors} = this.state;
     const {classes} = this.props;
 
@@ -109,7 +73,7 @@ class CreateProject extends Component {
             <GridItem xs={12} sm={12} md={12}>
             <div className={classes.container}>
             <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={4}>
+              <GridItem xs={12} sm={12} md={6}>
                 <Card className={classes[this.state.cardAnimaton]}>
                   <form onSubmit={this.handleSubmit} className={classes.form}>
                     <CardHeader color="primary" className={classes.cardHeader}>

@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter} from "react-router-dom";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // core components
@@ -8,11 +9,14 @@ import Table from "../../common/Table/Table.jsx";
 import Card from "../../common/Card/Card.jsx";
 import CardHeader from "../../common/Card/CardHeader.jsx";
 import CardBody from "../../common/Card/CardBody.jsx";
+import CustomInput from "../../common/CustomInput/CustomInput.jsx"
+import Button from "../../common/CustomButtons/Button.jsx"
+import Search from "@material-ui/icons/Search";
 
 const styles = {
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
-      color: "rgba(255,255,255,.62)",
+      color: "#FFFFFF",
       margin: "0",
       fontSize: "14px",
       marginTop: "0",
@@ -26,7 +30,7 @@ const styles = {
     color: "#FFFFFF",
     marginTop: "0px",
     minHeight: "auto",
-    fontWeight: "300",
+    fontWeight: "600",
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
     marginBottom: "3px",
     textDecoration: "none",
@@ -40,68 +44,57 @@ const styles = {
 };
 
 function ProjectsFeed(props) {
-  const { classes } = props;
-  const { projects } = props;
-  console.log('projects from feed',projects)
+  const {classes} = props;
+  const {projects} = props;
+  const handleChange = (e) => {
+    this.setState({
+      [e.target.name] : e.target.value
+    })
+  }
+
+  const handleProjectClick = (projectId) => {
+    props.history.push(`/project/${projectId}`);
+  }
+  
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+            <h4 className={classes.cardTitleWhite}>LATEST PROJECTS</h4>
             <p className={classes.cardCategoryWhite}>
-              Here is a subtitle for this table
+              Here are your last projects, search to find others
             </p>
+            <div className={classes.searchWrapper}>
+              <CustomInput
+                name="searchProjects"
+                value="I need a state"
+                onChange={handleChange}
+                formControlProps={{
+                className: classes.margin + " " + classes.search
+              }}
+                inputProps={{
+                placeholder: "Search",
+                inputProps: {
+                  "aria-label": "Search"
+                }
+              }}
+                white/>
+              <Button color="white" aria-label="edit" justIcon round>
+                <Search/>
+              </Button>
+            </div>
           </CardHeader>
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Project", "Description", "Customer", "Budget", "Total"]}
-              tableData={projects}
-            />
+              tableHead={["Project", "Description", "Customer", "Budget"]}
+              tableData={projects} handleRowClick={handleProjectClick} /> {/*rowLink="/projects"*/}
           </CardBody>
         </Card>
       </GridItem>
-      {/* <GridItem xs={12} sm={12} md={12}>
-        <Card plain>
-          <CardHeader plain color="primary">
-            <h4 className={classes.cardTitleWhite}>
-              Table on Plain Background
-            </h4>
-            <p className={classes.cardCategoryWhite}>
-              Here is a subtitle for this table
-            </p>
-          </CardHeader>
-          <CardBody>
-            <Table
-              tableHeaderColor="primary"
-              tableHead={["ID", "Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-                ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-                [
-                  "4",
-                  "Philip Chaney",
-                  "$38,735",
-                  "Korea, South",
-                  "Overland Park"
-                ],
-                [
-                  "5",
-                  "Doris Greene",
-                  "$63,542",
-                  "Malawi",
-                  "Feldkirchen in Kärnten"
-                ],
-                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
-              ]}
-            />
-          </CardBody>
-        </Card>
-      </GridItem> */}
     </GridContainer>
   );
 }
 
-export default withStyles(styles)(ProjectsFeed);
+export default withRouter(withStyles(styles)(ProjectsFeed));

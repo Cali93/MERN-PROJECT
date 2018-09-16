@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import compose from 'recompose/compose';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
-import TextFieldGroup from '../../common/textFieldGroup';
-import {PaperHeader} from '../../common/PaperHeader';
-import GridContainer from '../../common/GridContainer';
-import GridItem from '../../common/GridItem';
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -17,8 +12,11 @@ import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import Person from "@material-ui/icons/Person";
-import {Button, Divider, Paper} from '@material-ui/core';
+import {Divider} from '@material-ui/core';
+import Button from "../../common/CustomButtons/Button.jsx"
 
+import GridContainer from '../../common/GridContainer';
+import GridItem from '../../common/GridItem';
 import Card from "../../common/Card/Card.jsx";
 import CardBody from "../../common/Card/CardBody.jsx";
 import CardHeader from "../../common/Card/CardHeader.jsx";
@@ -84,9 +82,7 @@ class Register extends Component {
       }
     }
 
-    const { classes, ...rest } = this.props;
-
-    // const { user } = this.props.auth;
+    const { classes } = this.props;
 
     return (
         <div
@@ -221,7 +217,7 @@ class Register extends Component {
                     <CardFooter className={classes.cardFooter}>
                     <GridContainer style={{textAlign:'center'}}>
                     <GridItem xs={12} sm={12} md={12}>
-                    <Button onClick={this.handleSubmit} variant="contained" color="secondary">Register</Button>
+                    <Button onClick={this.handleSubmit} variant="contained" color="primary">Register</Button>
 
                     </GridItem>
                     <GridItem xs={12} sm={12} md={12} style={styles.marginTopBot}>
@@ -232,7 +228,7 @@ class Register extends Component {
                         <GridItem xs={12} sm={12} md={12}>
                           <div >
                             <Link to="/login">
-                              <Button variant="contained" color="primary">Login</Button>
+                              <Button variant="contained" color="secondary">Login</Button>
                             </Link>
                           </div>
                         </GridItem>
@@ -260,6 +256,5 @@ class Register extends Component {
    errors: state.errors // now can access it by this.props.errors
  });
 
-// export default connect(mapStateToProps, { registerUser })(withRouter(Register));
 export default connect(mapStateToProps, { registerUser })(withStyles(loginPageStyle)(withRouter(Register)));
 

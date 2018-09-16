@@ -36,8 +36,8 @@ exports.create_project = (req, res) => {
   const newProject = new Project({
     name:req.body.name,
     description:req.body.description,
-    budget:req.body.budget,
-    customer:req.body.customer
+    customer:req.body.customer,
+    budget:req.body.budget
   });
   // console.log('new Project', newProject);
 
@@ -55,11 +55,10 @@ exports.get_project = (req, res) => {
         });
       }
       res.status(200).json({
-        project: project,
-        request: {
-          type: "GET",
-          url: "http://localhost:5000/api/projects/"
-        }
+        name: project.name,
+        description:project.description,
+        customer: project.customer,
+        budget: project.budget
       });
     })
     .catch(err => {

@@ -7,6 +7,8 @@ import {
   GET_ERRORS
 } from './types';
 
+import {clearErrors} from '../utils/clearErrors';
+
 // Get profiles
 export const getProjects = () => dispatch => {
   dispatch(setProjectLoading());
@@ -47,6 +49,7 @@ export const getProjectById = (projectId) => dispatch => {
 
 // Create project
 export const createProject = (projectData, history) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post('/api/projects', projectData)
     .then(res => history.push('/edit-project'))

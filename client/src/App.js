@@ -26,6 +26,7 @@ import AddExperience from './components/profile/add-experience/AddExperience';
 import AddEducation from './components/profile/add-education/AddEducation';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
+import Project from './components/project/Project';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -97,13 +98,14 @@ class App extends Component {
                 <Route path='/Login' component={Login} />
                 <Route path='/Profiles' component={Profiles} />
                 <Route path='/Profile/:handle' component={Profile} />
-                <Switch><PrivateRoute path='/projects' component={Projects} /></Switch>                
                 <Switch><PrivateRoute path='/create-profile' component={CreateProfile} /></Switch>                
                 <Switch><PrivateRoute path='/edit-profile' component={EditProfile} /></Switch>                
                 <Switch><PrivateRoute path='/add-experience' component={AddExperience} /></Switch>                
                 <Switch><PrivateRoute path='/add-education' component={AddEducation} /></Switch>       
                 <Switch><PrivateRoute path='/feed' component={Posts} /></Switch>                
                 <Switch><PrivateRoute path='/post/:id' component={Post} /></Switch>                
+                <Switch><PrivateRoute path='/projects' component={Projects} /></Switch>            
+                <Switch><PrivateRoute path='/project/:projectId' component={Project} /></Switch>            
                 <Route path='/not-found' component={NotFound} />
             </MuiThemeProvider>
             

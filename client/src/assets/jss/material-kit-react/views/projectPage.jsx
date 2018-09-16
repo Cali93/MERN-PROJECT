@@ -1,13 +1,12 @@
-import { container, title } from "../../material-kit-react.jsx";
+import { container} from "../../material-kit-react.jsx";
 
-import imagesStyle from "../../material-kit-react/imagesStyles.jsx";
+// import imagesStyle from "../../material-kit-react/imagesStyles.jsx";
 
 const projectPageStyle = {
   container: {
     ...container,
     zIndex: "2",
     position: "relative",
-    paddingTop: "12vh",
     color: "#FFFFFF"
   },
   cardHidden: {
